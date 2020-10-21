@@ -1,2 +1,2 @@
 # Proyecto-ahorcado-DAW2T
-# Esto es un text
+# Bienvenidos a nuestro primer proyecto de JS, consiste en el juego del ahorcado.
