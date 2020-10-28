@@ -22,3 +22,5 @@ primero =  window.open("primera_ventana.html", "primero", "top=100, left=700, wi
 function cerrar() {
     primero.close();
 }
+
+// xzcnklzxncklz
