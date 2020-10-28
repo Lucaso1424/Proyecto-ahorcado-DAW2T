@@ -1,1 +1,16 @@
 alert("Bienvenido");
+// CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
+let primero = null; // NO SE PORQUE ES NULO
+let boton = document.getElementById("abrir");
+boton.addEventListener("click", abrir);
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
+document.getElementById("cerrar").addEventListener("click", cerrar)
+// ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
+function abrir() {
+// SE HACE CON LA ETIQUETA WINDOW.OPEN
+primero =  window.open("primera_ventana.html", "primero", "top=100, left=700, width=500, height=600");
+}
+// CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
+function cerrar() {
+    primero.close();
+}
