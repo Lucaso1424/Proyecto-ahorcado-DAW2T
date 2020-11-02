@@ -1,7 +1,7 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
 var palabrasUsuario;
-
+var random;
 
 let boton = document.getElementById("abrir");
 
@@ -55,10 +55,17 @@ function Array() {
 
 }
 function getRandom(){
-    const random = parseInt(Math.random() * palabrasUsuario.length);
-    console.log(random, palabrasUsuario[random]);
+     random = parseInt(Math.random() * palabrasUsuario.length);
+     console.log(random, palabrasUsuario[random]);
 
+
+}
+function comitas(){
+    let texto = palabrasUsuario[random].toString();;
+    
 }
 
 Array();
 getRandom();
+comitas();
+
