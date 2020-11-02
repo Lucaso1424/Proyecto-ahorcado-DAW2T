@@ -1,4 +1,3 @@
-alert("Bienvenido");
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null; // NO SE PORQUE ES NULO
 
@@ -23,6 +22,14 @@ function abrir() {
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
 function cerrar() {
     primero.close();
+}
+
+var palabraUsuario;
+
+prompt.palabraUsuario("Escribe 5 palabras que quieras adivinar adelante");
+
+function Array() {
+
 }
 
 function cambiarFoto() {
