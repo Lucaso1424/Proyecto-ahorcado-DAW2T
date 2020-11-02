@@ -1,5 +1,6 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
+var palabrasUsuario;
 
 
 let boton = document.getElementById("abrir");
@@ -41,7 +42,6 @@ function foto() {
 }
 
 function Array() {
-    var palabrasUsuario;
 
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
@@ -52,8 +52,13 @@ function Array() {
     console.log(palabrasUsuario);
     
     // LO DEJAMOS GUARDADO EN UNA CONSTANTE
-    const random = Math.floor(Math.random() * palabrasUsuario.length);
+
+}
+function getRandom(){
+    const random = parseInt(Math.random() * palabrasUsuario.length);
     console.log(random, palabrasUsuario[random]);
+
 }
 
 Array();
+getRandom();
