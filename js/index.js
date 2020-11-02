@@ -65,7 +65,9 @@ function comitas() {
 }
 
 function eliminarCaracteres() {
+
     texto = texto.toUpperCase();
+
     const acentos_espacios = {
         'Á': 'A',
         'À': 'A',
@@ -80,13 +82,13 @@ function eliminarCaracteres() {
         'Ü': "U"
 
     };
+
     console.log(texto);
 
 }
+
+Array();
 getRandom();
 comitas();
 eliminarCaracteres();
 }
-
-Array();
-
