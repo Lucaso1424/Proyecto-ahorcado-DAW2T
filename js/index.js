@@ -26,12 +26,18 @@ function abrir() {
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
 function cerrar() {
     primero.close();
+    segundo.close();
+    tercero.close();
+
 }
 
+document.getElementById("foto").addEventListener("click", foto)
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
+
+function foto(){
+   document.getElementById("img1").src= "../img/Foto1.png";
+
+}
 function Array() {
 
-}
-
-function cambiarFoto() {
-    document.getElementById("img0").src = 'img/Foto1';
 }
