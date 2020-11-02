@@ -50,6 +50,10 @@ function Array() {
     }
 
     console.log(palabrasUsuario);
+    
+    // LO DEJAMOS GUARDADO EN UNA CONSTANTE
+    const random = Math.floor(Math.random() * palabrasUsuario.length);
+    console.log(random, palabrasUsuario[random]);
 }
 
 Array();
