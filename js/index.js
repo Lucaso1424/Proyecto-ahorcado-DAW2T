@@ -15,9 +15,9 @@ document.getElementById("cerrar").addEventListener("click", cerrar)
 
 function abrir() {
 // SE HACE CON LA ETIQUETA WINDOW.OPEN
-primero =  window.open("../ventanas/primera_ventana.html", "primero", "top=100, left=700, width=400, height=200");
-segundo =  window.open("../ventanas/segunda_ventana.html", "segundo", "top=100, left=700, width=400, height=200");
-tercero =  window.open("../ventanas/tercera_ventana.html", "tercero", "top=100, left=700, width=400, height=200");
+primero =  window.open("../ventanas/primera_ventana.html", "primero", "top=20, left=700, width=400, height=200");
+segundo =  window.open("../ventanas/segunda_ventana.html", "segundo", "top=285, left=700, width=400, height=200");
+tercero =  window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
