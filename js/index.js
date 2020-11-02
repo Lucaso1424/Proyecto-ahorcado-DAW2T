@@ -30,8 +30,9 @@ function cerrar() {
     tercero.close();
 }
 
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
 function abandonar_partida() {
-    
+    location.reload(true);
 }
 
 document.getElementById("foto").addEventListener("click", foto)
