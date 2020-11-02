@@ -23,10 +23,14 @@ tercero =  window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
 function cerrar() {
     primero.close();
+    segundo.close();
+    tercero.close();
+
 }
 
-// xzcnklzxncklz
+document.getElementById("foto").addEventListener("click", foto)
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
-function cambiarFoto(){
- document.getElementById("img0").src="foto1.png";
+function foto(){
+   document.getElementById("img1").src= "../img/Foto1.png";
 }
