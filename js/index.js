@@ -24,9 +24,9 @@ function cerrar() {
     primero.close();
 }
 
-var palabraUsuario;
+var palabrasUsuario;
 
-prompt.palabraUsuario("Escribe 5 palabras que quieras adivinar adelante");
+palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:");
 
 function Array() {
 
