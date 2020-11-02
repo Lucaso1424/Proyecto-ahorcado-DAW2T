@@ -50,7 +50,7 @@ function Array() {
     }
 
     console.log(palabrasUsuario);
-}
+
 
 // RANDOMIZA LA PALABRA DEL ARRAY
 function getRandom() {
@@ -64,21 +64,9 @@ function comitas() {
     console.log(texto);
 }
 
-function eliminarCaracteres(comitas) {
-
+function eliminarCaracteres() {
     texto = texto.toUpperCase();
-
     const acentos_espacios = {
-        'á': 'a',
-        'à': 'a',
-        'é': 'e',
-        'è': 'e',
-        'í': 'i',
-        'ì': 'i',
-        'ó': 'o',
-        'ò': 'o',
-        'ú': 'u',
-        'ü': 'u',
         'Á': 'A',
         'À': 'A',
         'É': 'E',
@@ -90,9 +78,15 @@ function eliminarCaracteres(comitas) {
         'Ú': 'U',
         'Ù': 'U',
         'Ü': "U"
+
     };
+    console.log(texto);
+
+}
+getRandom();
+comitas();
+eliminarCaracteres();
 }
 
 Array();
-getRandom();
-eliminarCaracteres();
+
