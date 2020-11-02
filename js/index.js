@@ -49,10 +49,12 @@ function Array() {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
     }
 
+    pala
+
     console.log(palabrasUsuario);
     
     // LO DEJAMOS GUARDADO EN UNA CONSTANTE
-    const random = Math.floor(Math.random() * palabrasUsuario.length);
+    const random = parseInt(Math.random() * palabrasUsuario.length);
     console.log(random, palabrasUsuario[random]);
 }
 
