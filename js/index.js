@@ -33,16 +33,18 @@ function cerrar() {
     tercero.close();
 }
 
+
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
-function abandonar_partida() {
-    location.reload(true);
-}
+setTimeout(
+    function abandonar_partida() {
+        location.reload(true)
+    }, 5000);
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
 function foto() {
-    for(var i=0; i<6;i++){
-        document.getElementById("img0").src = '/img/Foto'+i+'.png';
+    for (var i = 0; i < 6; i++) {
+        document.getElementById("img0").src = '/img/Foto' + i + '.png';
     }
 }
 
