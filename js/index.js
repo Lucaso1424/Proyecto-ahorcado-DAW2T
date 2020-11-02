@@ -47,3 +47,5 @@ function foto() {
 function Array() {
 
 }
+
+console.log(palabrasUsuario);
