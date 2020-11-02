@@ -1,6 +1,6 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
-let palabrasUsuario;
+var palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 var texto;
 let random;
 
@@ -43,29 +43,23 @@ function foto() {
 }
 
 function Array() {
-    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
-
     if (palabrasUsuario == "") {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
     }
 
     console.log(palabrasUsuario);
-
+}
 
 // RANDOMIZA LA PALABRA DEL ARRAY
 function getRandom() {
     random = parseInt(Math.random() * palabrasUsuario.length);
-    console.log(random, palabrasUsuario[random]);
+    texto = palabrasUsuario[random];
+    console.log(random, texto);
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
-function comitas() {
-    texto = palabrasUsuario[random];
-    console.log(texto);
-}
 
 function eliminarCaracteres() {
-
     texto = texto.toUpperCase();
 
     const acentos_espacios = {
@@ -82,13 +76,9 @@ function eliminarCaracteres() {
         'Ü': "U"
 
     };
-
     console.log(texto);
-
 }
 
 Array();
 getRandom();
-comitas();
-eliminarCaracteres();
-}
+//eliminarCaracteres();
