@@ -1,8 +1,8 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
-var palabrasUsuario = null;
+let palabrasUsuario;
 var texto;
-var random;
+let random;
 
 let boton = document.getElementById("abrir");
 
@@ -50,7 +50,7 @@ function Array() {
     }
 
     console.log(palabrasUsuario);
-}
+
 
 // RANDOMIZA LA PALABRA DEL ARRAY
 function getRandom() {
@@ -59,34 +59,34 @@ function getRandom() {
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
-function comitas(){
-    let texto = palabrasUsuario[random].toString();;
-     texto = palabrasUsuario[random];
+function comitas() {
+    texto = palabrasUsuario[random];
     console.log(texto);
 }
-   
 
-
-function eliminarCaracteres(texto) {
-    const acentos_espacios = {
-        'á': 'a',
-        'é': 'e',
-        'í': 'i',
-        'ó': 'o',
-        'ú': 'u',
-        'ü': 'u',
-        'Á': 'A',
-        'É': 'E',
-        'Í': 'I',
-        'Ó': 'O',
-        'Ú': 'U',
-        'Ü': "U",
-    
-    };
-
+function eliminarCaracteres() {
     texto = texto.toUpperCase();
+    const acentos_espacios = {
+        'Á': 'A',
+        'À': 'A',
+        'É': 'E',
+        'È': 'E',
+        'Í': 'I',
+        'Ì': 'I',
+        'Ó': 'O',
+        'Ò': 'O',
+        'Ú': 'U',
+        'Ù': 'U',
+        'Ü': "U"
+
+    };
+    console.log(texto);
+
+}
+getRandom();
+comitas();
+eliminarCaracteres();
 }
 
-
 Array();
-getRandom();
+
