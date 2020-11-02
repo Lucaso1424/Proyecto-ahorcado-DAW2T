@@ -74,11 +74,11 @@ function eliminarCaracteres() {
         'Ú': 'U',
         'Ù': 'U',
         'Ü': "U"
-
     };
+
     console.log(texto);
 }
 
 Array();
 getRandom();
-//eliminarCaracteres();
+eliminarCaracteres();
