@@ -1,5 +1,6 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
+var palabrasUsuario;
 
 
 let boton = document.getElementById("abrir");
@@ -20,7 +21,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar() {
+function cerrar(){
     primero.close();
     segundo.close();
     tercero.close();
@@ -35,13 +36,12 @@ function abandonar_partida() {
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET 
 
 function foto() {
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 7; i++) {
         document.getElementById("img0").src = '/img/Foto' + i + '.png';
     }
 }
 
 function Array() {
-    var palabrasUsuario;
 
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
@@ -54,8 +54,16 @@ function Array() {
     console.log(palabrasUsuario);
     
     // LO DEJAMOS GUARDADO EN UNA CONSTANTE
+<<<<<<< HEAD
+=======
+
+}
+function getRandom(){
+>>>>>>> 73f8bb193c21f9f018e7202e5aee9d7f7d728d86
     const random = parseInt(Math.random() * palabrasUsuario.length);
     console.log(random, palabrasUsuario[random]);
+
 }
 
 Array();
+getRandom();
