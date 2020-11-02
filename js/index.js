@@ -1,10 +1,3 @@
-var palabrasUsuario;
-
-palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
-
-console.log(palabrasUsuario);
-
-
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null; // NO SE PORQUE ES NULO
 
@@ -27,7 +20,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar() {
+function cerrar(){
     primero.close();
     segundo.close();
     tercero.close();
@@ -35,11 +28,11 @@ function cerrar() {
 
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
-setTimeout(
+/*setTimeout(
     function abandonar_partida() {
         location.reload(true)
     }, 5000);
-
+*/
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
 function foto() {
@@ -49,5 +42,17 @@ function foto() {
 }
 
 function Array() {
-}
+    var palabrasUsuario;
+    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
+    if (palabrasUsuario == "" || palabrasUsuario == null) {
+        palabrasUsuario = ["pekora","yoravlo","objeto","lucasito","armario"];
+    }
+    console.log(palabrasUsuario)
+}   
+  
+
+ 
+
+Array();
+getRandom();
