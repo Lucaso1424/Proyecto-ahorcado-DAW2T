@@ -39,8 +39,9 @@ document.getElementById("foto").addEventListener("click", foto)
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
 function foto() {
-    document.getElementById("img0").src = "../img/Foto1.png";
-
+    for(var i=0; i<6;i++){
+    document.getElementById("img0").src = '/img/Foto'+i+'.png';
+    }
 }
 
 function Array() {
