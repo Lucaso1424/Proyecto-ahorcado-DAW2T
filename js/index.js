@@ -1,3 +1,7 @@
+var palabrasUsuario;
+
+palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
+
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null; // NO SE PORQUE ES NULO
 
@@ -23,10 +27,6 @@ function abrir() {
 function cerrar() {
     primero.close();
 }
-
-var palabrasUsuario;
-
-palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:");
 
 function Array() {
 
