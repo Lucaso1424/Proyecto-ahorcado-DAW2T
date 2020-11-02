@@ -21,7 +21,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar(){
+function cerrar() {
     primero.close();
     segundo.close();
     tercero.close();
@@ -42,7 +42,6 @@ function foto() {
 }
 
 function Array() {
-
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
     if (palabrasUsuario == "") {
@@ -50,15 +49,18 @@ function Array() {
     }
 
     console.log(palabrasUsuario);
-    
-    // LO DEJAMOS GUARDADO EN UNA CONSTANTE
-
 }
-function getRandom(){
-     random = parseInt(Math.random() * palabrasUsuario.length);
-     console.log(random, palabrasUsuario[random]);
 
+// RANDOMIZA LA PALABRA DEL ARRAY
+function getRandom() {
+    random = parseInt(Math.random() * palabrasUsuario.length);
+    console.log(random, palabrasUsuario[random]);
+}
 
+// CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
+function comitas() {
+    let texto = palabrasUsuario[random];
+    console.log(texto);
 }
 function comitas(){
     let texto = palabrasUsuario[random].toString();;
@@ -68,4 +70,3 @@ function comitas(){
 Array();
 getRandom();
 comitas();
-
