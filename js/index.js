@@ -51,15 +51,18 @@ function Array() {
     console.log(palabrasUsuario);
 }
 
+// RANDOMIZA LA PALABRA DEL ARRAY
 function getRandom() {
     random = parseInt(Math.random() * palabrasUsuario.length);
     console.log(random, palabrasUsuario[random]);
 }
 
+// CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
 function comitas() {
-    let texto = palabrasUsuario.toString();
+    let texto = palabrasUsuario[random];
     console.log(texto);
 }
 
 Array();
 getRandom();
+comitas();
