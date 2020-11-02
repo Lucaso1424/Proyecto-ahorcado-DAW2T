@@ -27,3 +27,6 @@ function cerrar() {
 
 // xzcnklzxncklz
 
+function cambiarFoto(){
+ document.getElementById("img0").src="foto1.png";
+}
