@@ -1,6 +1,7 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
-var palabrasUsuario;
+var palabrasUsuario = null;
+var texto;
 var random;
 
 let boton = document.getElementById("abrir");
@@ -58,11 +59,28 @@ function getRandom() {
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
-function comitas() {
-    let texto = palabrasUsuario[random];
+
+    texto = palabrasUsuario[random];
     console.log(texto);
+
+
+function eliminarCaracteres(texto) {
+    const acentos_espacios = {
+        'á': 'a',
+        'é': 'e',
+        'í': 'i',
+        'ó': 'o',
+        'ú': 'u',
+        'Á': 'A',
+        'É': 'E',
+        'Í': 'I',
+        'Ó': 'O',
+        'Ú': 'U',
+        'Ü': " "
+    };
+
+    texto = texto.toUpperCase();
 }
 
 Array();
 getRandom();
-comitas();
