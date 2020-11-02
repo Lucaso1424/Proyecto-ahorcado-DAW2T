@@ -44,7 +44,6 @@ function foto() {
 
 function Array() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
-
     if (palabrasUsuario == "") {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
     }
@@ -53,18 +52,18 @@ function Array() {
 
 
 // RANDOMIZA LA PALABRA DEL ARRAY
-function getRandom() {
+
     random = parseInt(Math.random() * palabrasUsuario.length);
     console.log(random, palabrasUsuario[random]);
-}
+
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
-function comitas() {
+//function comitas() {
     texto = palabrasUsuario[random];
     console.log(texto);
-}
+//}
 
-function eliminarCaracteres() {
+//function eliminarCaracteres() {
     texto = texto.toUpperCase();
     const acentos_espacios = {
         'Á': 'A',
@@ -82,10 +81,11 @@ function eliminarCaracteres() {
     };
     console.log(texto);
 
-}
-getRandom();
-comitas();
-eliminarCaracteres();
+//}
+
+
+//comitas();
+//eliminarCaracteres();
 }
 
 Array();
