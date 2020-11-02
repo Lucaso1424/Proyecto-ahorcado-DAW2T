@@ -2,6 +2,9 @@ var palabrasUsuario;
 
 palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
+console.log(palabrasUsuario);
+
+
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null; // NO SE PORQUE ES NULO
 
@@ -30,16 +33,18 @@ function cerrar() {
     tercero.close();
 }
 
-// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
-function abandonar_partida() {
-    location.reload(true);
-}
 
- 
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
+setTimeout(
+    function abandonar_partida() {
+        location.reload(true)
+    }, 5000);
+
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
 function foto() {
-    for(var i=0; i<7;i++){
-    document.getElementById("img0").src = '/img/Foto'+i+'.png';
+    for (var i = 0; i < 7; i++) {
+        document.getElementById("img0").src = '/img/Foto' + i + '.png';
     }
 }
 
