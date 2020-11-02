@@ -1,19 +1,12 @@
-var palabrasUsuario;
-
-palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
-
-console.log(palabrasUsuario);
-
-
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
-let primero = null; // NO SE PORQUE ES NULO
+let primero = null;
 
 
 let boton = document.getElementById("abrir");
 
 
 boton.addEventListener("click", abrir);
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 
 
 document.getElementById("cerrar").addEventListener("click", cerrar)
@@ -34,13 +27,12 @@ function cerrar() {
 }
 
 
-// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO
-setTimeout(
-    function abandonar_partida() {
-        location.reload(true)
-    }, 5000);
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
+function abandonar_partida() {
+    location.reload(true)
+}
 
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET 
 
 function foto() {
     for (var i = 0; i < 6; i++) {
@@ -49,5 +41,15 @@ function foto() {
 }
 
 function Array() {
+    var palabrasUsuario;
 
+    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
+
+    if (palabrasUsuario == "") {
+        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
+    }
+
+    console.log(palabrasUsuario);
 }
+
+Array();
