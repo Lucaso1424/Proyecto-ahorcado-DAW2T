@@ -1,7 +1,7 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null;
 var palabrasUsuario;
-
+var random;
 
 let boton = document.getElementById("abrir");
 
@@ -21,7 +21,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar(){
+function cerrar() {
     primero.close();
     segundo.close();
     tercero.close();
@@ -49,11 +49,17 @@ function Array() {
     }
 
     console.log(palabrasUsuario);
-    
-    // LO DEJAMOS GUARDADO EN UNA CONSTANTE
-
 }
 
+function getRandom() {
+    random = parseInt(Math.random() * palabrasUsuario.length);
+    console.log(random, palabrasUsuario[random]);
+}
+
+function comitas() {
+    let texto = palabrasUsuario.toString();
+    console.log(texto);
+}
 
 Array();
 getRandom();
