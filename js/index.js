@@ -2,6 +2,9 @@ var palabrasUsuario;
 
 palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
+console.log(palabrasUsuario);
+
+
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let primero = null; // NO SE PORQUE ES NULO
 
@@ -35,7 +38,6 @@ function abandonar_partida() {
     location.reload(true);
 }
 
-document.getElementById("foto").addEventListener("click", foto)
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
 
 function foto() {
@@ -47,5 +49,3 @@ function foto() {
 function Array() {
 
 }
-
-console.log(palabrasUsuario);
