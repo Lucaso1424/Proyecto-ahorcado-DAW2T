@@ -35,15 +35,14 @@ function abandonar_partida() {
     location.reload(true);
 }
 
-document.getElementById("foto").addEventListener("click", foto)
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET, ENTONCES EN EL 
+ 
 
 function foto() {
-    for(var i=0; i<6;i++){
+    for(var i=0; i<7;i++){
     document.getElementById("img0").src = '/img/Foto'+i+'.png';
     }
 }
 
 function Array() {
-
 }
+
