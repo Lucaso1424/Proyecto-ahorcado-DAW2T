@@ -42,7 +42,6 @@ function foto() {
 }
 
 function Array() {
-
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 
     if (palabrasUsuario == "") {
@@ -54,11 +53,7 @@ function Array() {
     // LO DEJAMOS GUARDADO EN UNA CONSTANTE
 
 }
-function getRandom(){
-    const random = parseInt(Math.random() * palabrasUsuario.length);
-    console.log(random, palabrasUsuario[random]);
 
-}
 
 Array();
 getRandom();
