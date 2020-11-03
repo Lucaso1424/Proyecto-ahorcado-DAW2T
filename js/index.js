@@ -85,37 +85,26 @@ function eliminarCaracteres() {
     };
 
     console.log(texto);
-    var no_permitidos = /[Àáèéìíòóùúü ]/;
-
-    var cambioCaracteres = texto.replace(no_permitidos,
-        function(cambio) {
-            return acentos_espacios[cambio]
-        });
-
-    return cambioCaracteres;
 }
 
-function borrarEspacios(){
+function borrarEspacios() {
     texto = texto.trim();
-    //alert(texto);
-    for (var i=0; i<texto.length;i++){
-    if(texto.charAt(i) == " "){
-        
-    }
-}
-}
-function replace(){
-    comillas = texto.replace(0);
-    comillas.push()
-    console.log(comillas);
-    
-    //1 JOIN, 1 PUSH 1 SPLIT
-
+    alert(texto);
+    /*for (var i = 0; i < texto.length; i++) {
+        if (texto.charAt(i) == " ") {
+            if (texto.startsWith = (" ") && (texto.startsWith = (" "))) {
+                return true;
+            }
+            return false;
+        }
+    }*/
 }
 
+function comitasBajas() {
+    texto
+}
 
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-replace();
