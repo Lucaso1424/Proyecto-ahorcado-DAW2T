@@ -101,10 +101,20 @@ function borrarEspacios() {
 }
 
 function comitasBajas() {
-    texto
+    let palabra;
+    let mostrar = [];
+    palabra = texto.split("");
+
+    for (let letra of palabra) {
+        mostrar.push('_');
+    }
+
+    console.log(mostrar);
 }
+
 
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
+comitasBajas();
