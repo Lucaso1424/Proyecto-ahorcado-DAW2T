@@ -81,6 +81,7 @@ function eliminarCaracteres() {
         'Ú': 'U',
         'Ù': 'U',
         'Ü': "U"
+
     };
 
     console.log(texto);
@@ -94,6 +95,27 @@ function eliminarCaracteres() {
     return cambioCaracteres;
 }
 
+function borrarEspacios(){
+    texto = texto.trim();
+    //alert(texto);
+    for (var i=0; i<texto.length;i++){
+    if(texto.charAt(i) == " "){
+        
+    }
+}
+}
+function replace(){
+    comillas = texto.replace(0);
+    comillas.push()
+    console.log(comillas);
+    
+    //1 JOIN, 1 PUSH 1 SPLIT
+
+}
+
+
 Array();
 getRandom();
 eliminarCaracteres();
+borrarEspacios();
+replace();
