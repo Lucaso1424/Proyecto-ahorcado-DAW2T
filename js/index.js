@@ -90,25 +90,21 @@ function eliminarCaracteres() {
 function borrarEspacios() {
     texto = texto.trim();
     alert(texto);
-    /*for (var i = 0; i < texto.length; i++) {
-        if (texto.charAt(i) == " ") {
-            if (texto.startsWith = (" ") && (texto.startsWith = (" "))) {
-                return true;
-            }
-            return false;
-        }
-    }*/
-}
-
-function comitasBajas() {
-    let palabra;
-    let mostrar = [];
-    palabra = texto.split("");
-
-    for (let letra of palabra) {
-        mostrar.push('_');
+    //for (var i=0; i<texto.length;i++){
+    //if(texto.charAt(i) == " "){
+ 
+    
     }
 
+
+
+function comitasBajas(){
+    let mostrar = [];
+    texto = texto.split("")
+    
+    for(let letra of texto){
+        mostrar.push('_');
+    }
     console.log(mostrar);
 }
 
