@@ -14,12 +14,11 @@ function iniciar_juego() {
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 window.onload = iniciar_juego();
 
-document.getElementById("cerrar").addEventListener("click", cerrar);
-// ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
-/*function ventana_dibujo() {
-    document.write("<img src='../img/Foto0.png' id='img0' width='200' height='200'>");
-}*/
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
+document.getElementById("cerrar").addEventListener("click", cerrar);
+
+// ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
 function abrir() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
@@ -52,7 +51,7 @@ function foto() {
 
 function Array() {
     if (palabrasUsuario == "") {
-        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador", "videojuego"]
+        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
     }
 
     console.log(palabrasUsuario);
