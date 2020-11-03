@@ -87,7 +87,7 @@ function eliminarCaracteres() {
     console.log(texto);
 }
 
-function borrarEspacios() {
+function borrarEspacios(){
     texto = texto.trim();
     alert(texto);
     //for (var i=0; i<texto.length;i++){
@@ -108,6 +108,7 @@ function comitasBajas(){
     console.log(mostrar);
 }
 
+    //1 JOIN, 1 PUSH 1 SPLIT
 
 Array();
 getRandom();
