@@ -1,4 +1,5 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
+let padre = null;
 let primero = null;
 var palabrasUsuario;
 var texto;
@@ -12,7 +13,8 @@ function iniciar_juego() {
 }
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-window.onload = iniciar_juego();
+
+ padre = window.onload = iniciar_juego();
 
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
@@ -98,18 +100,19 @@ function borrarEspacios(){
 }
 
 // CREAMOS 
-function comitasBajas(){
-    let mostrar = [];
-    texto = texto.split("")
-    
-    for(let letra of texto){
-        mostrar.push('_');
-    }
-
-    document.write("<h1>"+mostrar+"</h1>");
-}
 
     //1 JOIN, 1 PUSH 1 SPLIT
+    function comitasBajas(){
+        let mostrar = [];
+        texto = texto.split("")
+        
+        for(let letra of texto){
+            mostrar.push('_');
+        }
+    
+    window.open(document.write("<h1>"+mostrar+"</h1>"));
+    }
+
 
 Array();
 getRandom();
