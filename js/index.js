@@ -85,37 +85,33 @@ function eliminarCaracteres() {
     };
 
     console.log(texto);
-    var no_permitidos = /[Àáèéìíòóùúü ]/;
-
-    var cambioCaracteres = texto.replace(no_permitidos,
-        function(cambio) {
-            return acentos_espacios[cambio]
-        });
-
-    return cambioCaracteres;
 }
 
 function borrarEspacios(){
     texto = texto.trim();
-    //alert(texto);
-    for (var i=0; i<texto.length;i++){
-    if(texto.charAt(i) == " "){
-        
-    }
-}
-}
-function replace(){
-    comillas = texto.replace(0);
-    comillas.push()
-    console.log(comillas);
+    alert(texto);
+    //for (var i=0; i<texto.length;i++){
+    //if(texto.charAt(i) == " "){
+ 
     
-    //1 JOIN, 1 PUSH 1 SPLIT
+    }
 
+
+
+function comitasBajas(){
+    let mostrar = [];
+    texto = texto.split("")
+    
+    for(let letra of texto){
+        mostrar.push('_');
+    }
+    console.log(mostrar);
 }
 
+    //1 JOIN, 1 PUSH 1 SPLIT
 
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-replace();
+comitasBajas();
