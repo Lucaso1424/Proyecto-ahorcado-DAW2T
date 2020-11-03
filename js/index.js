@@ -16,12 +16,12 @@ function iniciar_juego() {
 
  padre = window.onload = iniciar_juego();
 
+
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
+
+
 document.getElementById("cerrar").addEventListener("click", cerrar);
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
-
-/*function ventana_dibujo() {
-    document.write("<img src='../img/Foto0.png' id='img0' width='200' height='200'>");
-}*/
 
 function abrir() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
@@ -54,7 +54,7 @@ function foto() {
 
 function Array() {
     if (palabrasUsuario == "") {
-        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador", "videojuego"]
+        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
     }
 
     console.log(palabrasUsuario);
@@ -100,22 +100,20 @@ function borrarEspacios(){
 }
 
 // CREAMOS 
-
-    //1 JOIN, 1 PUSH 1 SPLIT
-    function comitasBajas(){
-        let mostrar = [];
-        texto = texto.split("")
-        
-        for(let letra of texto){
-            mostrar.push('_');
-        }
+function comitasBajas(){
+    let mostrar = [];
+    texto = texto.split("")
     
-    window.open(document.write("<h1>"+mostrar+"</h1>"));
+    for(let letra of texto){
+        mostrar.push('_');
     }
 
+    document.write("<h1>"+mostrar+"</h1>");
+}
+
+    //1 JOIN, 1 PUSH 1 SPLIT
 
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-comitasBajas();
