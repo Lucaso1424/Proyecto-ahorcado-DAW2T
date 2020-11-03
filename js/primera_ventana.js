@@ -1,1 +1,0 @@
-document.write("<img src='../img/Foto0.png' id='img0' width='200' height='200'>");
