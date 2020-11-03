@@ -2,7 +2,7 @@
 let primero = null;
 var palabrasUsuario;
 var texto;
-let random;
+var random;
 
 let boton = document.getElementById("abrir");
 
@@ -14,11 +14,11 @@ function iniciar_juego() {
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 window.onload = iniciar_juego();
 
-boton.addEventListener("click", abrir);
+
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 
 
-document.getElementById("cerrar").addEventListener("click", cerrar)
+document.getElementById("cerrar").addEventListener("click", cerrar);
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
 function abrir() {
@@ -28,13 +28,14 @@ function abrir() {
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
 }
 
+window.onload = abrir();
+
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
 function cerrar() {
     primero.close();
     segundo.close();
     tercero.close();
 }
-
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
 function abandonar_partida() {
@@ -84,16 +85,19 @@ function eliminarCaracteres() {
 
     };
 
+    //acentos_espacios = acentos_espacios.replace(/Á/g,"")
+
     console.log(texto);
 }
 
 function borrarEspacios() {
     texto = texto.trim();
-    alert(texto);
+    //alert(texto);
     //for (var i=0; i<texto.length;i++){
     //if(texto.charAt(i) == " "){
-    }
+}
 
+// CREAMOS 
 function comitasBajas(){
     let mostrar = [];
     texto = texto.split("")
@@ -101,7 +105,8 @@ function comitasBajas(){
     for(let letra of texto){
         mostrar.push('_');
     }
-    console.log(mostrar);
+
+    document.write("<h1>"+mostrar+"</h1>");
 }
 
 
