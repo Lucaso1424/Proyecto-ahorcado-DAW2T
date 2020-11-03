@@ -92,11 +92,7 @@ function borrarEspacios(){
     alert(texto);
     //for (var i=0; i<texto.length;i++){
     //if(texto.charAt(i) == " "){
- 
-    
     }
-
-
 
 function comitasBajas(){
     let mostrar = [];
