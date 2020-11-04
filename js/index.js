@@ -13,14 +13,19 @@ function iniciar_juego() {
 }
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-
- padre = window.onload = iniciar_juego();
-
+if(window.location.pathname == "/index.html"){
+ window.onload = iniciar_juego();
+ window.onload = abrir();
+ console.log(window.location.pathname);
+} 
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 
 
+
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 document.getElementById("cerrar").addEventListener("click", cerrar);
+
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
 function abrir() {
@@ -117,3 +122,4 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
+
