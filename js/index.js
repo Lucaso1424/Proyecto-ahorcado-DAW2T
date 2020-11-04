@@ -25,7 +25,7 @@ if(window.location.pathname == "/index.html"){
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
-document.getElementById("cerrar").addEventListener("click", cerrar);
+
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
@@ -37,11 +37,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar() {
-    primero.close();
-    segundo.close();
-    tercero.close();
-}
+
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
 function abandonar_partida() {
@@ -104,6 +100,7 @@ function borrarEspacios(){
 }
 
 // CREAMOS 
+
 function comitasBajas(){
     let mostrar = [];
     texto = texto.split("")
@@ -115,8 +112,9 @@ function comitasBajas(){
     document.write("<h1>"+mostrar+"</h1>");
 }
 
-if (window.location.pathname == "/ventanas/segunda_ventana.html") {
+if(window.location.pathname == "/ventanas/segunda_ventana.html") {
     window.onload = comitasBajas();
+
 } 
 
 Array();
