@@ -22,6 +22,7 @@ if(window.location.pathname == "/index.html"){
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 
 
+// INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 document.getElementById("cerrar").addEventListener("click", cerrar);
@@ -34,8 +35,6 @@ function abrir() {
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=285, left=700, width=400, height=200");
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
 }
-
-window.onload = abrir();
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
 function cerrar() {
@@ -116,7 +115,9 @@ function comitasBajas(){
     document.write("<h1>"+mostrar+"</h1>");
 }
 
-    //1 JOIN, 1 PUSH 1 SPLIT
+if (window.location.pathname == "/ventanas/segunda_ventana.html") {
+    window.onload = comitasBajas();
+} 
 
 Array();
 getRandom();
