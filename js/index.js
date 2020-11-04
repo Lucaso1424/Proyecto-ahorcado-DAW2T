@@ -1,4 +1,5 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
+let padre = null;
 let primero = null;
 var palabrasUsuario;
 var texto;
@@ -11,16 +12,20 @@ function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 }
 
-if (window.location.pathname == "/index.html") {
-    window.onload = iniciar_juego();
-    window.onload = abrir();
+// INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
+if(window.location.pathname == "/index.html"){
+ window.onload = iniciar_juego();
+ window.onload = abrir();
+ console.log(window.location.pathname);
 } 
+
+// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
 
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
-document.getElementById("cerrar").addEventListener("click", cerrar);
+
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
@@ -32,11 +37,7 @@ function abrir() {
 }
 
 // CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-function cerrar() {
-    primero.close();
-    segundo.close();
-    tercero.close();
-}
+
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
 function abandonar_partida() {
@@ -91,7 +92,7 @@ function eliminarCaracteres() {
     console.log(texto);
 }
 
-function borrarEspacios() {
+function borrarEspacios(){
     texto = texto.trim();
     //alert(texto);
     //for (var i=0; i<texto.length;i++){
@@ -99,6 +100,7 @@ function borrarEspacios() {
 }
 
 // CREAMOS 
+
 function comitasBajas(){
     let mostrar = [];
     texto = texto.split("")
@@ -110,8 +112,9 @@ function comitasBajas(){
     document.write("<h1>"+mostrar+"</h1>");
 }
 
-if (window.location.pathname == "/ventanas/segunda_ventana.html") {
+if(window.location.pathname == "/ventanas/segunda_ventana.html") {
     window.onload = comitasBajas();
+
 } 
 
 Array();
