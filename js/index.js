@@ -14,19 +14,10 @@ function iniciar_juego() {
 }
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-if(window.location.pathname == "/index.html"){
- window.onload = iniciar_juego();
- window.onload = abrir();
- console.log(window.location.pathname);
-} 
-
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
-
-
-// INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET
-
+if (window.location.pathname == "/index.html") {
+    window.onload = iniciar_juego();
+    window.onload = abrir();
+}
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
@@ -48,9 +39,14 @@ function abandonar_partida() {
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET 
 
 function foto() {
-    for (var i = 0; i < 7; i++) {
-        document.getElementById("img0").src = '/img/Foto' + i + '.png';
-    }
+    document.write("<img id='img0' src='/img/Foto0.png' width='200'height='200'>");
+    /*for (var i = 0; i < 7; i++) {
+        document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
+    }*/
+}
+
+if (window.location.pathname == "/ventanas/primera_ventana.html") {
+    window.onload = foto();
 }
 
 function Array() {
@@ -87,26 +83,21 @@ function eliminarCaracteres() {
         'Ü': "U"
 
     };
-
-    //acentos_espacios = acentos_espacios.replace(/Á/g,"")
-
     console.log(texto);
 }
 
-function borrarEspacios(){
+function borrarEspacios() {
     texto = texto.trim();
     //alert(texto);
     //for (var i=0; i<texto.length;i++){
     //if(texto.charAt(i) == " "){
 }
 
-// CREAMOS 
-
-function comitasBajas(){
+function comitasBajas() {
     let mostrar = [];
     texto = texto.split("")
-    
-    for(let letra of texto){
+
+    for (let letra of texto) {
         mostrar.push('_');
     }
 
@@ -130,5 +121,3 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-comitasBajas();
-compararLetra()
