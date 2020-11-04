@@ -1,11 +1,12 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 let padre = null;
 let primero = null;
-var palabrasUsuario;
+var palabrasUsuario =[];
 var texto;
 var random;
 
 let boton = document.getElementById("abrir");
+var compara = document.getElementById("botonLetra");
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
@@ -109,16 +110,25 @@ function comitasBajas(){
         mostrar.push('_');
     }
 
-    document.write("<h1>"+mostrar+"</h1>");
+    document.write("<h2>"+mostrar+"<h2>");
 }
 
-if(window.location.pathname == "/ventanas/segunda_ventana.html") {
-    window.onload = comitasBajas();
 
-} 
+function compararLetra(){
+    compara = prompt("Dime una letra:");
+    for(let i=0; i<texto.length;i++){
+        if(compara == texto[i]) 
+        //document.getElementById("comita").innerHTML = texto.length ="_";
+        console.log("Funciona");
+    } 
+}
+function cambiarLetra(){
 
+
+}
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-
+comitasBajas();
+compararLetra()
