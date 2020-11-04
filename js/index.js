@@ -118,4 +118,3 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-comitasBajas();
