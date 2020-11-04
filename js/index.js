@@ -121,3 +121,4 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
+compararLetra()
