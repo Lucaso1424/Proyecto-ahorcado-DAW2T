@@ -5,8 +5,6 @@ var palabrasUsuario = [];
 var texto;
 var random;
 
-let boton = document.getElementById("abrir");
-
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
@@ -101,11 +99,11 @@ function comitasBajas() {
     }
 
     document.write("<h1>" + mostrar + "</h1>");
+    //document.getElementById("paragraf").innerText = mostrar;
 }
-
-
 
 Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
+comitasBajas();
