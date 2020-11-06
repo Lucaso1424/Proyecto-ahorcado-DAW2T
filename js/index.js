@@ -1,12 +1,7 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
-let padre = null;
-let primero = null;
-var palabrasUsuario =[];
+var palabrasUsuario = [];
 var texto;
 var random;
-
-let boton = document.getElementById("abrir");
-var compara = document.getElementById("botonLetra");
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
@@ -28,18 +23,7 @@ function abrir() {
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
 }
 
-// CREAMOS OTRA FUNCION PARA CERRAR LA VENTANA
-
-
-// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
-let abandonar_caca = document.getElementById("abandonar_caca");
-function abandonar_partida() {
-    location.reload(true)
-}
-
-
-// FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET 
-
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 function foto() {
     document.write("<img id='img0' src='/img/Foto0.png' width='200'height='200'>");
     /*for (var i = 0; i < 7; i++) {
@@ -95,28 +79,45 @@ function borrarEspacios() {
     //if(texto.charAt(i) == " "){
 }
 
-function comitasBajas () {
+function comitasBajas() {
     let mostrar = [];
     texto = texto.split("")
 
     for (let letra of texto) {
         mostrar.push('_');
     }
-    resultado = document.write("<h2>"+mostrar+"</h2>")
+    resultado = document.write("<h2>" + mostrar + "</h2>");
     //console.log(resultado);
-   // window.open("../ventanas/cuarta_ventana.html", "comitas", "top=20, left=700, width=400, height=200" + resultado);
+    // window.open("../ventanas/cuarta_ventana.html", "comitas", "top=20, left=700, width=400, height=200" + resultado);
 }
 
-function compararLetra(){
-    compara = prompt("Dime una letra:");
-    for(let i=0; i<texto.length;i++){
-        if(compara == texto[i]) 
-        //document.getElementById("comita").innerHTML = texto.length ="_";
-        console.log("Funciona");
-    } 
+var compara = document.getElementById("botonLetra");
+document.getElementById("botonLetra").addEventListener("click", compararLetra);
+
+function compararLetra() {
+    // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
+    compara = prompt("Dime una letra:").toUpperCase();
+    for (let i = 0; i < texto.length; i++) {
+        if (compara == texto[i]) {
+            //document.getElementById("comita").innerHTML = texto.length ="_";
+            console.log("Funciona");
+        }
+    }
 }
 
-function cambiarLetra(){
+var abandona = document.getElementById("cerrar");
+document.getElementById("cerrar").addEventListener("click", abandonar_partida);
+
+function abandonar_partida() {
+    primero.close();
+    segundo.close();
+    tercero.close();
+    if (window.location.pathname == "/index.html") {
+        window.location.reload(true);
+    }
+}
+
+function cambiarLetra() {
 
 }
 
