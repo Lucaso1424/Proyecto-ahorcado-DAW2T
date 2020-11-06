@@ -19,14 +19,14 @@ if (window.location.pathname == "/index.html") {
 
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
-    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=20, left=700, width=400, height=200");
-    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=285, left=700, width=400, height=200");
-    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
+    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=1000, left=0, width=400, height=350");
+    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=2000, left=500, width=400, height=350");
+    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=3000, left=1000, width=400, height=350");
 }
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 function dinujoAhorcado() {
-    primero.document.write("<img src='/img/Foto0.png' width='200'height='200'>");
+    primero.document.write("<img src='/img/Foto6.png' width='350'height='350'>");
     /*for (var i = 0; i < 7; i++) {
         document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
     }*/
@@ -111,7 +111,17 @@ function abandonar_partida() {
 }
 
 function cambiarLetra() {
-    
+
+}
+
+function estadisticas() {
+    tercero.document.write("<h2>Partida actual</h2>");
+    tercero.document.write("<p>Letras correctas:</p>");
+    tercero.document.write("<p>Letras restantes:</p>");
+
+    tercero.document.write("<h2>Estadísticas globales</h2>");
+    tercero.document.write("<p>Abandonos:</p>");
+    tercero.document.write("<p>Número de veces colgado:</p>");
 }
 
 Array();
@@ -120,3 +130,4 @@ eliminarCaracteres();
 borrarEspacios();
 comitasBajas();
 dinujoAhorcado();
+estadisticas();
