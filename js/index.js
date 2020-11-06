@@ -2,7 +2,7 @@
 var palabrasUsuario = [];
 var texto;
 var random;
-var abandona;
+
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
@@ -12,12 +12,12 @@ function iniciar_juego() {
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
 if (window.location.pathname == "/index.html") {
     window.onload = iniciar_juego();
-    window.onload = abrir();
+    window.onload = abrirVentanas();
 }
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
 
-function abrir() {
+function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=20, left=700, width=400, height=200");
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=285, left=700, width=400, height=200");
@@ -25,16 +25,16 @@ function abrir() {
 }
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
-function foto() {
-    document.write("<img id='img0' src='/img/Foto0.png' width='200'height='200'>");
+function dinujoAhorcado() {
+    primero.document.write("<img src='/img/Foto0.png' width='200'height='200'>");
     /*for (var i = 0; i < 7; i++) {
         document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
     }*/
 }
 
-if (window.location.pathname == "/ventanas/primera_ventana.html") {
+/*if (window.location.pathname == "/ventanas/primera_ventana.html") {
     window.onload = foto();
-}
+}*/
 
 function Array() {
     if (palabrasUsuario == "") {
@@ -55,7 +55,6 @@ function getRandom() {
 
 function eliminarCaracteres() {
     texto = texto.toUpperCase();
-
     const acentos_espacios = {
         'Á': 'A',
         'À': 'A',
@@ -68,7 +67,6 @@ function eliminarCaracteres() {
         'Ú': 'U',
         'Ù': 'U',
         'Ü': "U"
-
     };
     console.log(texto);
 }
@@ -124,3 +122,5 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
+comitasBajas();
+dinujoAhorcado();
