@@ -93,15 +93,16 @@ function borrarEspacios() {
     //if(texto.charAt(i) == " "){
 }
 
-function comitasBajas() {
+function comitasBajas () {
     let mostrar = [];
     texto = texto.split("")
 
     for (let letra of texto) {
         mostrar.push('_');
     }
-
-    document.write("<h2>"+mostrar+"<h2>");
+    resultado = document.write("<h2>"+mostrar+"</h2>")
+    //console.log(resultado);
+   // window.open("../ventanas/cuarta_ventana.html", "comitas", "top=20, left=700, width=400, height=200" + resultado);
 }
 
 function compararLetra(){
