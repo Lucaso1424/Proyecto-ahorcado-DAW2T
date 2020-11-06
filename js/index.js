@@ -111,7 +111,7 @@ function abandonar_partida() {
 }
 
 function cambiarLetra() {
-
+    
 }
 
 Array();
