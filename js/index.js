@@ -92,8 +92,8 @@ function comitasBajas() {
     document.write("<h2>" + mostrar + "</h2>");
 }
 
-/*var comitas_final = document.getElementById("comitas");
-document.getElementById("comitas").addEventListener("click", comitasBajas);*/
+var comitas_final = document.getElementById("comitas");
+document.getElementById("comitas").addEventListener("click", comitasBajas);
 
 var compara = document.getElementById("botonLetra");
 document.getElementById("botonLetra").addEventListener("click", compararLetra);
