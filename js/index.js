@@ -32,9 +32,11 @@ function abrir() {
 
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS8
+let abandonar_caca = document.getElementById("abandonar_caca");
 function abandonar_partida() {
     location.reload(true)
 }
+
 
 // FUNCION ADD EVENT LISTENER QUE CUANDO EL BOTÓN RECIBA UN CLICK, POR ESO GENERAMOS EL LET 
 
