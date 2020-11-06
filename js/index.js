@@ -3,6 +3,7 @@ var palabrasUsuario = [];
 var texto;
 var random;
 
+
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
@@ -86,10 +87,13 @@ function comitasBajas() {
     for (let letra of texto) {
         mostrar.push('_');
     }
-    resultado = document.write("<h2>" + mostrar + "</h2>");
-    //console.log(resultado);
-    // window.open("../ventanas/cuarta_ventana.html", "comitas", "top=20, left=700, width=400, height=200" + resultado);
+
+    //document.getElementById("comitas").innerText = mostrar;
+    document.write("<h2>" + mostrar + "</h2>");
 }
+
+/*var comitas_final = document.getElementById("comitas");
+document.getElementById("comitas").addEventListener("click", comitasBajas);*/
 
 var compara = document.getElementById("botonLetra");
 document.getElementById("botonLetra").addEventListener("click", compararLetra);
@@ -125,4 +129,4 @@ Array();
 getRandom();
 eliminarCaracteres();
 borrarEspacios();
-comitasBajas();
+//comitasBajas();
