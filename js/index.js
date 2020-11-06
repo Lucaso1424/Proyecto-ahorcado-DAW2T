@@ -32,10 +32,6 @@ function dinujoAhorcado() {
     }*/
 }
 
-/*if (window.location.pathname == "/ventanas/primera_ventana.html") {
-    window.onload = foto();
-}*/
-
 function Array() {
     if (palabrasUsuario == "") {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
