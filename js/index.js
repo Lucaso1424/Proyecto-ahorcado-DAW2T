@@ -3,6 +3,11 @@ var palabrasUsuario = [];
 var texto;
 var random;
 
+var abandona = document.getElementById("cerrar");
+document.getElementById("cerrar").addEventListener("click", abandonar_partida);
+
+var compara = document.getElementById("botonLetra");
+document.getElementById("botonLetra").addEventListener("click", compararLetra);
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
@@ -26,7 +31,7 @@ function abrirVentanas() {
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 function dinujoAhorcado() {
-    primero.document.write("<img src='/img/Foto6.png' width='350'height='350'>");
+    primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
     /*for (var i = 0; i < 7; i++) {
         document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
     }*/
@@ -34,9 +39,8 @@ function dinujoAhorcado() {
 
 function Array() {
     if (palabrasUsuario == "") {
-        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"]
+        palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
     }
-
     console.log(palabrasUsuario);
 }
 
@@ -45,12 +49,15 @@ function getRandom() {
     random = parseInt(Math.random() * palabrasUsuario.length);
     texto = palabrasUsuario[random];
     console.log(random, texto);
+    // LLAMAMOS A LA FUNCIÓN DE ELIMINAR CARACTERES PARA QUE ELIMINE LOS ACENTOS CREADOS
+    texto = eliminarCaracteres(texto);
+    console.log(texto);
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
-
 function eliminarCaracteres() {
     texto = texto.toUpperCase();
+
     const acentos_espacios = {
         'Á': 'A',
         'À': 'A',
@@ -62,10 +69,19 @@ function eliminarCaracteres() {
         'Ò': 'O',
         'Ú': 'U',
         'Ù': 'U',
-        'Ü': "U"
+        'Ü': "U",
+        " ": ""
     };
-    console.log(texto);
+
+    var cambio = /[áàéèíìóòúùü ]/ig;
+
+    var cambio_final = texto.replace(cambio, function (a) {
+        return acentos_espacios[a]
+    });
+
+    return cambio_final;
 }
+
 
 function borrarEspacios() {
     texto = texto.trim();
@@ -75,17 +91,19 @@ function borrarEspacios() {
 }
 
 function comitasBajas() {
-    let mostrar = [];
+    var mostrar = [];
+    var convertido = [];
+
     texto = texto.split("")
 
     for (let letra of texto) {
         mostrar.push('_');
     }
-    segundo.document.write("<h2>" + mostrar + "</h2>");
-}
 
-var compara = document.getElementById("botonLetra");
-document.getElementById("botonLetra").addEventListener("click", compararLetra);
+    var convertido = mostrar.toString();
+    var convertido_final = convertido.replace(/[,]/gi, " ")
+    segundo.document.write("<h2>" + convertido_final + "</h2>");
+}
 
 function compararLetra() {
     // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
@@ -93,13 +111,10 @@ function compararLetra() {
     for (let i = 0; i < texto.length; i++) {
         if (compara == texto[i]) {
             //document.getElementById("comita").innerHTML = texto.length ="_";
-            console.log("Funciona");
+            console.log("La letra está");
         }
     }
 }
-
-var abandona = document.getElementById("cerrar");
-document.getElementById("cerrar").addEventListener("click", abandonar_partida);
 
 function abandonar_partida() {
     primero.close();
@@ -126,7 +141,6 @@ function estadisticas() {
 
 Array();
 getRandom();
-eliminarCaracteres();
 borrarEspacios();
 comitasBajas();
 dinujoAhorcado();
