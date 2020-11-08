@@ -83,6 +83,8 @@ function eliminarCaracteres() {
     var cambio_final = texto.replace(cambio, function (a) {
         return acentos_espacios[a]
     });
+    // EN EL REPLACE AGREGAMOS LOS NUMEROS PARA SUSTITUIR
+    cambio_final = cambio_final.replace(/[1234567890!¿?+-]/ig, "");
 
     return cambio_final;
 }
