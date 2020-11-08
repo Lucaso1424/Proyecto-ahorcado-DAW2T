@@ -116,9 +116,17 @@ function compararLetra() {
     } 
     // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
     if (!texto.includes(compara)) {
-        // RESTAMOS LOS INTENTOS
+        // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
         alert("Fallido, te quedan " + intentos + ".");
+            if (intentos <= 0) {
+                // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+                alert("Has perdido el juego, la palabra era: " + texto + ".");
+                // VOLVEMOS A PONER LOS INTENTOS A 5
+                intentos = 5;
+                // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
+                getRandom();
+            }
     }
 }
 
