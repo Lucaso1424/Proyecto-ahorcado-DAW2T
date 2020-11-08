@@ -2,6 +2,7 @@
 var palabrasUsuario = [];
 var texto;
 var random;
+var intentos = 5;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", abandonar_partida);
@@ -57,6 +58,7 @@ function getRandom() {
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
 function eliminarCaracteres() {
     texto = texto.toUpperCase();
+    texto = texto.trim();
 
     const acentos_espacios = {
         'Á': 'A',
@@ -80,14 +82,6 @@ function eliminarCaracteres() {
     });
 
     return cambio_final;
-}
-
-
-function borrarEspacios() {
-    texto = texto.trim();
-    //alert(texto);
-    //for (var i=0; i<texto.length;i++){
-    //if(texto.charAt(i) == " "){
 }
 
 function comitasBajas() {
@@ -141,7 +135,6 @@ function estadisticas() {
 
 Array();
 getRandom();
-borrarEspacios();
 comitasBajas();
 dinujoAhorcado();
 estadisticas();
