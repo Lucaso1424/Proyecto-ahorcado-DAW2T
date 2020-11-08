@@ -1,5 +1,8 @@
 // CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 var palabrasUsuario = [];
+var mostrar = [];
+var convertido = [];
+var convertido_final = [];
 var texto;
 var random;
 var intentos = 5;
@@ -85,28 +88,37 @@ function eliminarCaracteres() {
 }
 
 function comitasBajas() {
-    var mostrar = [];
-    var convertido = [];
-
     texto = texto.split("")
 
     for (let letra of texto) {
         mostrar.push('_');
     }
 
-    var convertido = mostrar.toString();
-    var convertido_final = convertido.replace(/[,]/gi, " ")
-    segundo.document.write("<h2>" + convertido_final + "</h2>");
+    convertido = mostrar.toString();
+    convertido_final = convertido.replace(/[,]/gi, " ")
+    // PONEMOS UN ID PARA LUEGO PODER CAMBIAR LAS _ POR LA LETRA CAMBIADA
+    segundo.document.write("<h2 id='letra'>" + convertido_final + "</h2>");
 }
 
 function compararLetra() {
     // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
     compara = prompt("Dime una letra:").toUpperCase();
+    // CREAMOS UN BUCLE PARA QUE RECORRA LA POSICIÓN DEL LA PALABRA
     for (let i = 0; i < texto.length; i++) {
         if (compara == texto[i]) {
-            //document.getElementById("comita").innerHTML = texto.length ="_";
-            console.log("La letra está");
+            mostrar[i] = compara;
+            // REPETIMOS DE NUEVO EL EL .TOSTRING PARA PODER UTILIZAR EL CONVERTIDO_FINAL CON LAS _ Y CAMBIAR LA POSICION DE LA LETRA
+            convertido = mostrar.toString();
+            convertido_final = convertido.replace(/[,]/gi, " ");
+            // PONEMOS EL GETELEMENTBYID CON EL INNERHTML PARA CAMBIAR EL HTML CON EL ID
+            segundo.document.getElementById("letra").innerHTML = convertido_final;
         }
+    } 
+    // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
+    if (!texto.includes(compara)) {
+        // RESTAMOS LOS INTENTOS
+        intentos--;
+        alert("Fallido, te quedan " + intentos + ".");
     }
 }
 
@@ -117,10 +129,6 @@ function abandonar_partida() {
     if (window.location.pathname == "/index.html") {
         window.location.reload(true);
     }
-}
-
-function cambiarLetra() {
-
 }
 
 function estadisticas() {
