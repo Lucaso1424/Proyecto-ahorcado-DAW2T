@@ -88,7 +88,7 @@ function eliminarCaracteres() {
 }
 
 function comitasBajas() {
-    texto = texto.split("")
+    texto = texto.split("");
 
     for (let letra of texto) {
         mostrar.push('_');
