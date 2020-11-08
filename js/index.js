@@ -107,26 +107,31 @@ function compararLetra() {
     for (let i = 0; i < texto.length; i++) {
         if (compara == texto[i]) {
             mostrar[i] = compara;
-            // REPETIMOS DE NUEVO EL EL .TOSTRING PARA PODER UTILIZAR EL CONVERTIDO_FINAL CON LAS _ Y CAMBIAR LA POSICION DE LA LETRA
+            // REPETIMOS DE NUEVO EL EL .toString PARA PODER UTILIZAR EL CONVERTIDO_FINAL CON LAS _ Y CAMBIAR LA POSICION DE LA LETRA
             convertido = mostrar.toString();
             convertido_final = convertido.replace(/[,]/gi, " ");
             // PONEMOS EL GETELEMENTBYID CON EL INNERHTML PARA CAMBIAR EL HTML CON EL ID
             segundo.document.getElementById("letra").innerHTML = convertido_final;
         }
-    } 
+    }
     // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
     if (!texto.includes(compara)) {
         // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
         alert("Fallido, te quedan " + intentos + ".");
-            if (intentos <= 0) {
-                // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
-                alert("Has perdido el juego, la palabra era: " + texto + ".");
-                // VOLVEMOS A PONER LOS INTENTOS A 5
-                intentos = 5;
-                // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
-                getRandom();
-            }
+        if (intentos <= 0) {
+            // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+            alert("Has perdido el juego, la palabra era: " + texto + ".");
+            // VOLVEMOS A PONER LOS INTENTOS A 5
+            intentos = 5;
+            // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
+            getRandom();
+        }
+    }
+    // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
+    if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
+        alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
+        getRandom();
     }
 }
 
