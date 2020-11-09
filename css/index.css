@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+.centrado {
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(59, 166, 180);
+    padding: 15px;
+}
+
+button.boton {
+    width: 110px; 
+    margin-left: 50%;
+    transform: translateX(-50%);
+}

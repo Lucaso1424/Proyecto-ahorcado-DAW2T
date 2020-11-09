@@ -33,14 +33,6 @@ function abrirVentanas() {
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=3000, left=1000, width=400, height=350");
 }
 
-// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
-function dinujoAhorcado() {
-    primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
-    /*for (var i = 0; i < 7; i++) {
-        document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
-    }*/
-}
-
 function Array() {
     if (palabrasUsuario == "") {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
@@ -120,21 +112,34 @@ function compararLetra() {
     if (!texto.includes(compara)) {
         // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
-        alert("Fallido, te quedan " + intentos + ".");
-        if (intentos <= 0) {
-            // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
-            alert("Has perdido el juego, la palabra era: " + texto + ".");
-            // VOLVEMOS A PONER LOS INTENTOS A 5
-            intentos = 5;
-            // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
-            getRandom();
-        }
+        alert("Fallido, te quedan " + intentos + " intentos.");
+    }
+    if (intentos <= 0) {
+        // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+        alert("Has perdido el juego, la palabra era: " + texto + ".");
+        // VOLVEMOS A PONER LOS INTENTOS A 5
+        intentos = 5;
+        // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
+        getRandom();
     }
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
         getRandom();
     }
+}
+
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
+function dinujoAhorcado() {
+    primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
+   /* if (!texto.includes(compara)) {
+        for (let i = 0; i < 7; i++) {
+            primero.document.write("<img id='img0' src='/img/Foto" + i + ".png' width='350'height='350'>");
+        }
+        //
+    } else {
+        primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
+    }*/
 }
 
 function abandonar_partida() {
