@@ -8,7 +8,7 @@ var random;
 var intentos = 5;
 
 var abandona = document.getElementById("cerrar");
-document.getElementById("cerrar").addEventListener("click", abandonar_partida);
+document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
 
 var compara = document.getElementById("botonLetra");
 document.getElementById("botonLetra").addEventListener("click", compararLetra);
@@ -149,6 +149,11 @@ function abandonar_partida() {
     if (window.location.pathname == "/index.html") {
         window.location.reload(true);
     }
+}
+
+// LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SEGUNDOS
+function timeout_abandonar() {
+    setTimeout('abandonar_partida()', 5000);
 }
 
 function estadisticas() {
