@@ -2,6 +2,11 @@
 var palabrasUsuario = [];
 var texto;
 var random;
+var comparador
+var mostrar = [];
+
+var botonLetra = document.getElementById("botonLetra");
+document.getElementById("botonLetra").addEventListener("click", compararLetra);
 
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
@@ -19,13 +24,13 @@ if (window.location.pathname == "/index.html") {
 
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
-    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=1000, left=0, width=400, height=350");
-    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=2000, left=500, width=400, height=350");
-    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=3000, left=1000, width=400, height=350");
+    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=20, left=700, width=400, height=200");
+    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=285, left=700, width=400, height=200");
+    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=800, left=700, width=400, height=200");
 }
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
-function dinujoAhorcado() {
+function dibujoAhorcado() {
     primero.document.write("<img src='/img/Foto6.png' width='350'height='350'>");
     /*for (var i = 0; i < 7; i++) {
         document.write("<img id='img0' src='/img/Foto0.png' width='200' height='200'>");
@@ -73,9 +78,8 @@ function borrarEspacios() {
     //for (var i=0; i<texto.length;i++){
     //if(texto.charAt(i) == " "){
 }
-
 function comitasBajas() {
-    let mostrar = [];
+    
     texto = texto.split("")
 
     for (let letra of texto) {
@@ -84,19 +88,31 @@ function comitasBajas() {
     segundo.document.write("<h2>" + mostrar + "</h2>");
 }
 
-var compara = document.getElementById("botonLetra");
-document.getElementById("botonLetra").addEventListener("click", compararLetra);
 
 function compararLetra() {
     // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
-    compara = prompt("Dime una letra:").toUpperCase();
+    comparador = prompt("Dime una letra:").toUpperCase();
     for (let i = 0; i < texto.length; i++) {
-        if (compara == texto[i]) {
-            //document.getElementById("comita").innerHTML = texto.length ="_";
+        if (comparador == texto[i]) {
+          //  document.getElementById("comita").innerHTML = texto.length ="_";
             console.log("Funciona");
+            //console.log(mostrar);
+            //segundo.mostrar.push(comparador);
+           segundo.document.write(mostrar.push(comparador));
+            segundo.document.write(texto[i]);
+
+            
         }
+
     }
+   // console.log(mostrar);
+   // console.log(comparador);
+    //console.log(texto);
 }
+function cambiarLetra(){
+  
+}
+
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", abandonar_partida);
@@ -110,15 +126,11 @@ function abandonar_partida() {
     }
 }
 
-function cambiarLetra() {
-
-}
 
 function estadisticas() {
     tercero.document.write("<h2>Partida actual</h2>");
     tercero.document.write("<p>Letras correctas:</p>");
     tercero.document.write("<p>Letras restantes:</p>");
-
     tercero.document.write("<h2>Estadísticas globales</h2>");
     tercero.document.write("<p>Abandonos:</p>");
     tercero.document.write("<p>Número de veces colgado:</p>");
@@ -129,5 +141,5 @@ getRandom();
 eliminarCaracteres();
 borrarEspacios();
 comitasBajas();
-dinujoAhorcado();
+dibujoAhorcado();
 estadisticas();
