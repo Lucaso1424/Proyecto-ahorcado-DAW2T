@@ -14,3 +14,13 @@ button.boton {
     margin-left: 50%;
     transform: translateX(-50%);
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(59, 166, 180);
+    color: black;
+    text-align: center;
+}

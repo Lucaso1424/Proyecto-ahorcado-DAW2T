@@ -28,9 +28,9 @@ if (window.location.pathname == "/index.html") {
 
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
-    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=1000, left=0, width=400, height=350");
-    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=2000, left=500, width=400, height=350");
-    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=3000, left=1000, width=400, height=350");
+    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
+    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=300, left=500, width=400, height=350");
+    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=300, left=1000, width=400, height=350");
 }
 
 function Array() {
