@@ -1,0 +1,30 @@
+body {
+    background-image: url("");
+}
+
+h1 {
+    text-align: center;
+}
+
+.centrado {
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(59, 166, 180);
+    padding: 15px;
+}
+
+button.boton {
+    width: 110px; 
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(59, 166, 180);
+    color: black;
+    text-align: center;
+}
