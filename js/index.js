@@ -5,8 +5,9 @@ var convertido = [];
 var convertido_final = [];
 var texto;
 var random;
-var intentos = 5;
-
+var intentos = 6;
+// VARIABLE I DE LA FOTO
+var i = 1;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
@@ -17,8 +18,6 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
-    
-
 }
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
@@ -84,6 +83,7 @@ function eliminarCaracteres() {
 
     return cambio_final;
 }
+
 function comitasBajas() {
     texto = texto.split("");
 
@@ -110,7 +110,6 @@ function compararLetra() {
             // PONEMOS EL GETELEMENTBYID CON EL INNERHTML PARA CAMBIAR EL HTML CON EL ID
             segundo.document.getElementById("letra").innerHTML = convertido_final;
         }
-
     }
 
     // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
@@ -120,36 +119,36 @@ function compararLetra() {
         alert("Fallido, te quedan " + intentos + " intentos.");
         cambiarFoto();
 
-    if (intentos <= 0) {
-        // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
-        alert("Has perdido el juego, la palabra era: " + texto + ".");
-        // VOLVEMOS A PONER LOS INTENTOS A 5
-        intentos = 5;
-        // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
-        getRandom();
+        if (intentos <= 0) {
+            // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+            alert("Has perdido el juego, la palabra era: " + texto + ".");
+            // VOLVEMOS A PONER LOS INTENTOS A 6
+            intentos = 6;
+            // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
+            // VOLVEMOS A PONER LA FOTO A 1
+            i = 1;
+            getRandom();
+        }
+        // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
+        if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
+            alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
+            intentos = 6;
+            i = 1;
+            getRandom();
+        }
     }
-    // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
-    if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
-        alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
-        getRandom();
-    }
-
-    
 }
-} //FIN COMPARAR LETRA
-var i = 0;
-function cambiarFoto(){  
+
+function cambiarFoto() {
     let contador = 6;
-    
     if (!texto.includes(compara)) {
-    //for(let i=1; i<= contador ;i++){
-    //  console.log(i)
-            primero.document.getElementById("img01").src ='img/Foto'+ i +'.png';
-           
-            //;break
-            
+        //for(let i=1; i<= contador ;i++){
+        //  console.log(i)
+        primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
+        //;break
     }
     i++;
+    // HACER IF QUE LA FOTO SE PONGA A 0
 }
 
 function abandonar_partida() {
@@ -163,7 +162,8 @@ function abandonar_partida() {
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SEGUNDOS
 function timeout_abandonar() {
-    setTimeout('abandonar_partida()', 5000);
+    // CAMBIARLO A 5000, LO PONGO A 1000 PARA QUE TARDE MENOS
+    setTimeout('abandonar_partida()', 1000);
 }
 
 function estadisticas() {
