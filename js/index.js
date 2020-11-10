@@ -30,6 +30,7 @@ function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=300, left=500, width=400, height=350");
+    segundo.document.write("<h2 id='letra'>" + convertido_final + "</h2>"); //EDIT
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=300, left=1000, width=400, height=350");
     primero.document.write("<img src='img/Foto0.png' id='img01'>");
 }
@@ -92,8 +93,9 @@ function comitasBajas() {
     convertido = mostrar.toString();
     convertido_final = convertido.replace(/[,]/gi, " ")
     // PONEMOS UN ID PARA LUEGO PODER CAMBIAR LAS _ POR LA LETRA CAMBIADA
-    segundo.document.write("<h2 id='letra'>" + convertido_final + "</h2>");
+    segundo.document.getElementById("letra").innerHTML = convertido_final; //EDIT
 }
+console.log(mostrar);
 
 function compararLetra() {
     // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
@@ -123,8 +125,11 @@ function compararLetra() {
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         i = 1;
+        mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
         // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
         getRandom();
+        comitasBajas();
+
 
     }
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
@@ -133,9 +138,14 @@ function compararLetra() {
         intentos = 6; 
         primero.document.write("<img src='img/Foto0.png' id='img01'>");
         i = 1;
+        mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
         getRandom();
+        comitasBajas();
+
     }
 }
+
+
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
