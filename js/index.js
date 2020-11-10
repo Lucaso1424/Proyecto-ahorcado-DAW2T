@@ -118,9 +118,8 @@ function compararLetra() {
         cambiarFoto();
         alert("Fallido, te quedan " + intentos + " intentos.");
     }     
-
-    if (intentos <= 0) {
-        // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+    
+    function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
@@ -132,6 +131,12 @@ function compararLetra() {
         // Y VUELVA CONVERTIR EL ARRAY A _
         comitasBajas();
     }
+
+    if (intentos <= 0) {
+        // LLAMAMOS A LA FUNCION PEPITO
+        setTimeout(falloAhorcado, 10000);
+    }
+
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
@@ -146,6 +151,8 @@ function compararLetra() {
     }
 }
 
+
+
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
 function cambiarFoto() {
@@ -156,12 +163,16 @@ function cambiarFoto() {
 }
 
 function abandonar_partida() {
+    // VOLVEMOS A PONER LAS VARIABLES A 0
+    intentos = 6; 
+    i = 1;
+    mostrar = [];
     primero.document.getElementById("img01").src = 'img/Foto0.png';
     getRandom();
     comitasBajas();
 }
 
-// LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT 
+// LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 10 SECS
 function timeout_abandonar() {
     setTimeout('abandonar_partida()', 5000);
 }
