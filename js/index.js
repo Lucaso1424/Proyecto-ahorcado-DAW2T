@@ -5,9 +5,7 @@ var convertido = [];
 var convertido_final = [];
 var texto;
 var random;
-var intentos = 6;
-// VARIABLE I DE LA FOTO
-var i = 1;
+var intentos = 5;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
@@ -120,22 +118,22 @@ function compararLetra() {
         // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         // VOLVEMOS A PONER LOS INTENTOS A 5
-        intentos = 5;
+        intentos = 6;
         // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
         getRandom();
     }
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
+        intentos = 6; 
         getRandom();
     }
 }
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
-function dibujoAhorcado() {
-   /* 
-       primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
-   if (!texto.includes(compara)) {
+function dinujoAhorcado() {
+    primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
+   /* if (!texto.includes(compara)) {
         for (let i = 0; i < 7; i++) {
             primero.document.write("<img id='img0' src='/img/Foto" + i + ".png' width='350'height='350'>");
         }
@@ -143,15 +141,6 @@ function dibujoAhorcado() {
     } else {
         primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
     }*/
-    let contador = 6;
-    if (!texto.includes(compara)) {
-        //for(let i=1; i<= contador ;i++){
-        //  console.log(i)
-        primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
-        //;break
-    }
-    i++;
-    // HACER IF QUE LA FOTO SE PONGA A 0
 }
 
 function abandonar_partida() {
@@ -181,5 +170,5 @@ function estadisticas() {
 Array();
 getRandom();
 comitasBajas();
-dibujoAhorcado();
+dinujoAhorcado();
 estadisticas();
