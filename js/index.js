@@ -5,7 +5,7 @@ var convertido = [];
 var convertido_final = [];
 var texto;
 var random;
-var intentos = 5;
+var intentos = 6;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
@@ -31,6 +31,7 @@ function abrirVentanas() {
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=300, left=500, width=400, height=350");
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=300, left=1000, width=400, height=350");
+    primero.document.write("<img src='img/Foto0.png' id='img01'>");
 }
 
 function Array() {
@@ -112,12 +113,14 @@ function compararLetra() {
     if (!texto.includes(compara)) {
         // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
+        cambiarFoto();
         alert("Fallido, te quedan " + intentos + " intentos.");
-    }
+   
+    }     
     if (intentos <= 0) {
         // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
         alert("Has perdido el juego, la palabra era: " + texto + ".");
-        // VOLVEMOS A PONER LOS INTENTOS A 5
+        // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
         getRandom();
@@ -131,18 +134,19 @@ function compararLetra() {
 }
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
-function dinujoAhorcado() {
-    primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
-   /* if (!texto.includes(compara)) {
-        for (let i = 0; i < 7; i++) {
-            primero.document.write("<img id='img0' src='/img/Foto" + i + ".png' width='350'height='350'>");
-        }
-        //
-    } else {
-        primero.document.write("<img src='/img/Foto0.png' width='350'height='350'>");
-    }*/
+var i = 1;
+function cambiarFoto() {
+    let contador = 6;
+    if (!texto.includes(compara)) {
+        //for(let i=1; i<= contador ;i++){
+         console.log(i)
+         
+        primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
+        i++;
+        //;break
+    }
+    // HACER IF QUE LA FOTO SE PONGA A 0
 }
-
 function abandonar_partida() {
     primero.close();
     segundo.close();
@@ -170,5 +174,5 @@ function estadisticas() {
 Array();
 getRandom();
 comitasBajas();
-dinujoAhorcado();
 estadisticas();
+cambiarFoto();
