@@ -8,9 +8,10 @@ h1 {
 
 .centrado {
     margin: auto;
-    width: 50%;
+    width: 18%;
     border: 3px solid rgb(59, 166, 180);
     padding: 15px;
+    margin-left: 41%;
 }
 
 button.boton {
