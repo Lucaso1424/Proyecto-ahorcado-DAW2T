@@ -137,7 +137,7 @@ function compararLetra() {
     
 }
 } //FIN COMPARAR LETRA
-var i = 1;
+var i = 0;
 function cambiarFoto(){  
     let contador = 6;
     
