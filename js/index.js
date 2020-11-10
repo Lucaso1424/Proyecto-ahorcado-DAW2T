@@ -122,13 +122,17 @@ function compararLetra() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
+        i = 1;
         // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
         getRandom();
+
     }
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
         intentos = 6; 
+        primero.document.write("<img src='img/Foto0.png' id='img01'>");
+        i = 1;
         getRandom();
     }
 }
