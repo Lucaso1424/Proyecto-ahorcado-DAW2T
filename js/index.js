@@ -6,8 +6,6 @@ var convertido_final = [];
 var texto;
 var random;
 var intentos = 6;
-// VARIABLE I DE LA FOTO
-var i = 1;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
@@ -111,46 +109,44 @@ function compararLetra() {
             segundo.document.getElementById("letra").innerHTML = convertido_final;
         }
     }
-
     // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
     if (!texto.includes(compara)) {
         // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
-        alert("Fallido, te quedan " + intentos + " intentos.");
         cambiarFoto();
-
-        if (intentos <= 0) {
-            // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
-            alert("Has perdido el juego, la palabra era: " + texto + ".");
-            // VOLVEMOS A PONER LOS INTENTOS A 6
-            intentos = 6;
-            // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
-            // VOLVEMOS A PONER LA FOTO A 1
-            i = 1;
-            getRandom();
-        }
-        // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
-        if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
-            alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
-            intentos = 6;
-            i = 1;
-            getRandom();
-        }
+        alert("Fallido, te quedan " + intentos + " intentos.");
+   
+    }     
+    if (intentos <= 0) {
+        // MOSTRAMOS LA PALABRA DEL ARRAY DEL TEXTO
+        alert("Has perdido el juego, la palabra era: " + texto + ".");
+        // VOLVEMOS A PONER LOS INTENTOS A 6
+        intentos = 6;
+        // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
+        getRandom();
+    }
+    // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
+    if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
+        alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
+        intentos = 6; 
+        getRandom();
     }
 }
 
+// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
+var i = 1;
 function cambiarFoto() {
     let contador = 6;
     if (!texto.includes(compara)) {
         //for(let i=1; i<= contador ;i++){
-        //  console.log(i)
+         console.log(i)
+         
         primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
+        i++;
         //;break
     }
-    i++;
     // HACER IF QUE LA FOTO SE PONGA A 0
 }
-
 function abandonar_partida() {
     primero.close();
     segundo.close();
@@ -162,7 +158,6 @@ function abandonar_partida() {
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SEGUNDOS
 function timeout_abandonar() {
-    // CAMBIARLO A 5000, LO PONGO A 1000 PARA QUE TARDE MENOS
     setTimeout('abandonar_partida()', 1000);
 }
 
@@ -170,11 +165,11 @@ function estadisticas() {
     tercero.document.write("<h2>Partida actual</h2>");
     tercero.document.write("<p>Letras correctas:</p>");
     tercero.document.write("<p>Letras restantes:</p>");
+
     tercero.document.write("<h2>Estadísticas globales</h2>");
     tercero.document.write("<p>Abandonos:</p>");
     tercero.document.write("<p>Número de veces colgado:</p>");
 }
-
 
 Array();
 getRandom();
