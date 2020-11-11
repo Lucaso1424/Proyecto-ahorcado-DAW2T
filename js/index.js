@@ -7,6 +7,8 @@ var texto;
 var random;
 var intentos = 6;
 
+var contador_partida_ganada = document.cookie = 0;
+
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
 
@@ -19,13 +21,15 @@ function iniciar_juego() {
 }
 
 // INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-if (window.location.pathname == "/index.html") {
+/*if (window.location.pathname == "/index.html") {
     window.onload = iniciar_juego();
     window.onload = abrirVentanas();
-}
+}*/
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
-
+var primero = null;
+var segundo = null;
+var tercero = null;
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
@@ -133,13 +137,15 @@ function compararLetra() {
     }
 
     if (intentos <= 0) {
-        // LLAMAMOS A LA FUNCION PEPITO
+        // LLAMAMOS A LA FUNCION FALLO AHORCADO
+        alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.   ");
         setTimeout(falloAhorcado, 10000);
     }
 
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
-        alert("Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".");
+        alert("¡Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".!");
+        contador_partida_ganada++;
         intentos = 6; 
         primero.document.write("<img src='img/Foto0.png' id='img01'>");
         i = 1;
@@ -150,8 +156,6 @@ function compararLetra() {
         comitasBajas();
     }
 }
-
-
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
@@ -164,12 +168,14 @@ function cambiarFoto() {
 
 function abandonar_partida() {
     // VOLVEMOS A PONER LAS VARIABLES A 0
+    contador_abandonar = 0;
     intentos = 6; 
     i = 1;
     mostrar = [];
     primero.document.getElementById("img01").src = 'img/Foto0.png';
     getRandom();
     comitasBajas();
+    contador_abandonar++;
 }
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 10 SECS
@@ -178,15 +184,14 @@ function timeout_abandonar() {
 }
 
 function estadisticas() {
-    tercero.document.write("<h2>Partida actual</h2>");
-    tercero.document.write("<p>Letras correctas:</p>");
-    tercero.document.write("<p>Letras restantes:</p>");
-
     tercero.document.write("<h2>Estadísticas globales</h2>");
-    tercero.document.write("<p>Abandonos:</p>");
-    tercero.document.write("<p>Número de veces colgado:</p>");
+    tercero.document.write("<p id='abandono'>Partidas abandonadas:</p>");
+    tercero.document.write("<p>Partidas ganadas: " + contador_partida_ganada + "</p>");
+    tercero.document.write("<p>Partidas perdidas:</p>");
 }
 
+iniciar_juego();
+abrirVentanas();
 Array();
 getRandom();
 comitasBajas();
