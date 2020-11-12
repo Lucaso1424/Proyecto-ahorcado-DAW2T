@@ -189,6 +189,37 @@ function estadisticas() {
     tercero.document.write("<p>Partidas ganadas: " + contador_partida_ganada + "</p>");
     tercero.document.write("<p>Partidas perdidas:</p>");
 }
+function setCookie(nombre, numero) { 
+    document.cookie = nombre + "=" + numero;
+  }
+
+function getCookie(nombre) {
+    var name = nombre + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+ function checkCookie(nombre) {
+    var username = getCookie("username");
+    if (username != "") {
+        tercero.document.getElementById("abandono").innerHTML = username;
+    } else {
+      username = prompt("Please enter your name:", "");
+      if (username != "" && username != null) {
+        setCookie("username", username, 365);
+      }
+    } console.log(username);
+  } 
+ 
 
 iniciar_juego();
 abrirVentanas();
@@ -196,3 +227,4 @@ Array();
 getRandom();
 comitasBajas();
 estadisticas();
+checkCookie();
