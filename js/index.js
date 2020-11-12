@@ -7,7 +7,9 @@ var texto;
 var random;
 var intentos = 6;
 
-var contador_partida_ganada = document.cookie = 0;
+var ganadas = 0;
+var perdidas = 0;
+var abandonadas = 0;
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
@@ -20,16 +22,7 @@ function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
 }
 
-// INICIAMOS EL JUEGO CON WINDOW.ONLOAD LLAMANDO A LA FUNCION DE INICIO DEL JUEGO
-/*if (window.location.pathname == "/index.html") {
-    window.onload = iniciar_juego();
-    window.onload = abrirVentanas();
-}*/
-
-// ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION
-var primero = null;
-var segundo = null;
-var tercero = null;
+// ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION 
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
@@ -121,10 +114,15 @@ function compararLetra() {
         intentos--;
         cambiarFoto();
         alert("Fallido, te quedan " + intentos + " intentos.");
-    }     
-    
+    }
+
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
+        perdidas++;
+        // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS PERDIDAS
+        tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
+        // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE PERDIDAS
+        setCookie("perdidas", perdidas);
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         i = 1;
@@ -138,15 +136,24 @@ function compararLetra() {
 
     if (intentos <= 0) {
         // LLAMAMOS A LA FUNCION FALLO AHORCADO
-        alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.   ");
-        setTimeout(falloAhorcado, 10000);
+        alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.");
+        // CAMBIAR EL TIME OUT A 10000 MILISEGUNDOS
+        setTimeout(falloAhorcado, 1000);
     }
 
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("¡Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".!");
-        contador_partida_ganada++;
-        intentos = 6; 
+        // HACEMOS UN ++ DEL CONTADOR DE GANADAS
+        ganadas++;
+        // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS GANADAS
+        tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
+        // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE GANADAS
+        setCookie("ganadas", ganadas);
+
+
+        // PONEMOS LOS INTENTOS A 6
+        intentos = 6;
         primero.document.write("<img src='img/Foto0.png' id='img01'>");
         i = 1;
         mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
@@ -157,8 +164,49 @@ function compararLetra() {
     }
 }
 
+function setCookie(cname, value, exdays, expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + value;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie(cname) {
+    var cname = getCookie(cname);
+    if (cname != "") {
+        // SI EL CNAME ES != DE VACIO ENTONCES BUSCA LAS COOKIES CON EL PARSEINT
+        perdidas = parseInt(getCookie("perdidas"));
+        abandonadas = parseInt(getCookie("abandonadas"));
+        ganadas = parseInt(getCookie("ganadas"));
+    } else {
+        // SINO DEFINIMOS LAS COOKIES A 0 CREADONLAS CON EL DOCUMENT.COOKIE Y LO PASAMOS A PARSEINT
+        document.cookie = "perdidas = 0";
+        perdidas = parseInt(getCookie("perdidas"));
+        document.cookie = "abandonadas = 0";
+        abandonadas = parseInt(getCookie("abandonadas"));
+        document.cookie = "ganadas = 0";
+        ganadas = parseInt(getCookie("ganadas"));
+    }
+}
+
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
+
 function cambiarFoto() {
     if (!texto.includes(compara)) {
         primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
@@ -167,15 +215,21 @@ function cambiarFoto() {
 }
 
 function abandonar_partida() {
+    // HACEMOS UN ++ DEL CONTADOR DE ABANDONADAS
+    abandonadas++;
+    // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS ABANDONADAS
+    tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
+    // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE ABANDONADAS
+    setCookie("abandonadas", abandonadas);
+
+
     // VOLVEMOS A PONER LAS VARIABLES A 0
-    contador_abandonar = 0;
-    intentos = 6; 
+    intentos = 6;
     i = 1;
     mostrar = [];
     primero.document.getElementById("img01").src = 'img/Foto0.png';
     getRandom();
     comitasBajas();
-    contador_abandonar++;
 }
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 10 SECS
@@ -186,8 +240,8 @@ function timeout_abandonar() {
 function estadisticas() {
     tercero.document.write("<h2>Estadísticas globales</h2>");
     tercero.document.write("<p id='abandono'>Partidas abandonadas:</p>");
-    tercero.document.write("<p>Partidas ganadas: " + contador_partida_ganada + "</p>");
-    tercero.document.write("<p>Partidas perdidas:</p>");
+    tercero.document.write("<p id='ganadas'>Partidas ganadas:</p>");
+    tercero.document.write("<p id='perdidas'>Partidas perdidas:</p>");
 }
 
 iniciar_juego();
