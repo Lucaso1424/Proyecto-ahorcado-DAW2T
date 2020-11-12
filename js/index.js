@@ -12,9 +12,9 @@ var perdidas = 0;
 var abandonadas = 0;
 
 // COMPROBAMOS LAS COOKIES DE LOS ID
-/*checkCookie("abandonadas");*/
-checkCookie("pierdo");
-/*checkCookie("gano");*/
+checkCookie("abandonadas");
+checkCookie("perdidas");
+checkCookie("gano");
 
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
