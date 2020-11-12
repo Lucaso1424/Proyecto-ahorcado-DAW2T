@@ -25,10 +25,10 @@ function iniciar_juego() {
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION 
 function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
-    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=300, left=0, width=400, height=350");
-    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=300, left=500, width=400, height=350");
+    primero = window.open("../ventanas/primera_ventana.html", "primero", "top=0, left=960, width=500, height=460");
+    segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=520, left=960, width=350, height=30");
     segundo.document.write("<h2 id='letra'>" + convertido_final + "</h2>"); //EDIT
-    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=300, left=1000, width=400, height=350");
+    tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=700, left=960, width=400, height=200");
     primero.document.write("<img src='img/Foto0.png' id='img01'>");
 }
 
@@ -47,7 +47,9 @@ function getRandom() {
     // LLAMAMOS A LA FUNCIÓN DE ELIMINAR CARACTERES PARA QUE ELIMINE LOS ACENTOS CREADOS
     texto = eliminarCaracteres(texto);
     console.log(texto);
+    document.getElementById("textoRespuesta").innerHTML = "La respuesta es: "+ texto;
 }
+
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
 function eliminarCaracteres() {
