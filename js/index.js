@@ -11,11 +11,6 @@ var ganadas = 0;
 var perdidas = 0;
 var abandonadas = 0;
 
-// COMPROBAMOS LAS COOKIES DE LOS ID
-checkCookie("abandonadas");
-checkCookie("perdidas");
-checkCookie("gano");
-
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
 
@@ -129,7 +124,7 @@ function compararLetra() {
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS PERDIDAS
         tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE PERDIDAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
-        setCookie("pierdo", perdidas, 30);
+        setCookie("perdidas", perdidas, 30);
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         i = 1;
@@ -156,7 +151,7 @@ function compararLetra() {
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS GANADAS
         tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE GANADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
-        setCookie("gano", ganadas, 30);
+        setCookie("ganadas", ganadas, 30);
 
 
         // PONEMOS LOS INTENTOS A 6
@@ -197,17 +192,17 @@ function checkCookie(cname) {
     var cname = getCookie(cname);
     if (cname != "") {
         // SI EL CNAME ES != DE VACIO ENTONCES BUSCA LAS COOKIES CON EL PARSEINT
-        perdidas = parseInt(getCookie("pierdo"));
+        perdidas = parseInt(getCookie("perdidas"));
         abandonadas = parseInt(getCookie("abandonadas"));
-        ganadas = parseInt(getCookie("gano"));
+        ganadas = parseInt(getCookie("ganadas"));
     } else {
         // SINO DEFINIMOS LAS COOKIES A 0 CREADONLAS CON EL DOCUMENT.COOKIE Y LO PASAMOS A PARSEINT
-        setCookie("pierdo", perdidas, 30);
-        perdidas = parseInt(getCookie("pierdo"));
-        setCookie("abandonadas", abandonadas, 30);
+        document.cookie = "perdidas = 0, 30";
+        perdidas = parseInt(getCookie("perdidas"));
+        document.cookie = "abandonadas = 0, 30";
         abandonadas = parseInt(getCookie("abandonadas"));
-        setCookie("gano", ganadas, 30);
-        ganadas = parseInt(getCookie("gano"));
+        document.cookie = "ganadas = 0, 30";
+        ganadas = parseInt(getCookie("ganadas"));
     }
 }
 
@@ -246,15 +241,9 @@ function timeout_abandonar() {
 
 function estadisticas() {
     tercero.document.write("<h2>Estadísticas globales</h2>");
-
     tercero.document.write("<p id='abandono'>Partidas abandonadas:</p>");
-    tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
-
     tercero.document.write("<p id='ganadas'>Partidas ganadas:</p>");
-    tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
-
     tercero.document.write("<p id='perdidas'>Partidas perdidas:</p>");
-    tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
 }
 function setCookie(nombre, numero) { 
     document.cookie = nombre + "=" + numero;
