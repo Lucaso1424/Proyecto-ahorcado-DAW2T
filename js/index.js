@@ -145,8 +145,6 @@ function compararLetra() {
     }
 }
 
-
-
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
 function cambiarFoto() {
