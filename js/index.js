@@ -24,16 +24,14 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
-    //
-
+    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:");
     if (palabrasUsuario !== null){
-        palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:").split(",");
+    palabrasUsuario = palabrasUsuario.split(",");
     }
-    else  Array();// palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
-
-
-    
+    else 
+    iniciar_juego();
 }
+
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION 
 function abrirVentanas() {
@@ -46,9 +44,9 @@ function abrirVentanas() {
 }
 
 function Array() {
-    //if (palabrasUsuario == "" || palabrasUsuario == null) {
+    if (palabrasUsuario == "" || palabrasUsuario == null) {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
-   // }
+    }
     console.log(palabrasUsuario);
 }
 
