@@ -11,6 +11,11 @@ var ganadas = 0;
 var perdidas = 0;
 var abandonadas = 0;
 
+// COMPROBAMOS LAS COOKIES DE LOS ID
+checkCookie("abandonadas");
+checkCookie("perdidas");
+checkCookie("gano");
+
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
 
@@ -47,9 +52,9 @@ function getRandom() {
     // LLAMAMOS A LA FUNCIÓN DE ELIMINAR CARACTERES PARA QUE ELIMINE LOS ACENTOS CREADOS
     texto = eliminarCaracteres(texto);
     console.log(texto);
-    document.getElementById("textoRespuesta").innerHTML = "La respuesta es: "+ texto;
-}
+    //document.getElementById("textoRespuesta").innerHTML = "La respuesta es: "+ texto;
 
+}
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
 function eliminarCaracteres() {
@@ -96,6 +101,9 @@ function comitasBajas() {
 }
 console.log(mostrar);
 
+
+
+
 function compararLetra() {
     // PASAR LAS LETRAS DIRECTAMENTE A MAYUSCULAS CON .toUpperCase
     compara = prompt("Dime una letra:").toUpperCase();
@@ -118,13 +126,16 @@ function compararLetra() {
         alert("Fallido, te quedan " + intentos + " intentos.");
     }
 
+
+    //                                          TE CUELGAN
+    
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         perdidas++;
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS PERDIDAS
         tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE PERDIDAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
-        setCookie("perdidas", perdidas, 30);
+        setCookie("pierdo", perdidas, 30);
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         i = 1;
@@ -136,12 +147,16 @@ function compararLetra() {
         comitasBajas();
     }
 
+    //                                          TIMEOUT
+
     if (intentos <= 0) {
         // LLAMAMOS A LA FUNCION FALLO AHORCADO
         alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.");
         // CAMBIAR EL TIME OUT A 10000 MILISEGUNDOS
         setTimeout(falloAhorcado, 1000);
     }
+
+    //                                       GANAR PARTIDA
 
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
@@ -151,9 +166,7 @@ function compararLetra() {
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS GANADAS
         tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE GANADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
-        setCookie("ganadas", ganadas, 30);
-
-
+        setCookie("gano", ganadas, 30);
         // PONEMOS LOS INTENTOS A 6
         intentos = 6;
         primero.document.write("<img src='img/Foto0.png' id='img01'>");
@@ -164,47 +177,9 @@ function compararLetra() {
         // Y VUELVA CONVERTIR EL ARRAY A _
         comitasBajas();
     }
-}
+} //FIN compararLetra
 
-function setCookie(cname, value, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + value + ";" + expires;
-}
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie(cname) {
-    var cname = getCookie(cname);
-    if (cname != "") {
-        // SI EL CNAME ES != DE VACIO ENTONCES BUSCA LAS COOKIES CON EL PARSEINT
-        perdidas = parseInt(getCookie("perdidas"));
-        abandonadas = parseInt(getCookie("abandonadas"));
-        ganadas = parseInt(getCookie("ganadas"));
-    } else {
-        // SINO DEFINIMOS LAS COOKIES A 0 CREADONLAS CON EL DOCUMENT.COOKIE Y LO PASAMOS A PARSEINT
-        document.cookie = "perdidas = 0, 30";
-        perdidas = parseInt(getCookie("perdidas"));
-        document.cookie = "abandonadas = 0, 30";
-        abandonadas = parseInt(getCookie("abandonadas"));
-        document.cookie = "ganadas = 0, 30";
-        ganadas = parseInt(getCookie("ganadas"));
-    }
-}
 
 // FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
 var i = 1;
@@ -239,43 +214,64 @@ function timeout_abandonar() {
     setTimeout('abandonar_partida()', 5000);
 }
 
-function estadisticas() {
-    tercero.document.write("<h2>Estadísticas globales</h2>");
-    tercero.document.write("<p id='abandono'>Partidas abandonadas:</p>");
-    tercero.document.write("<p id='ganadas'>Partidas ganadas:</p>");
-    tercero.document.write("<p id='perdidas'>Partidas perdidas:</p>");
-}
-function setCookie(nombre, numero) { 
-    document.cookie = nombre + "=" + numero;
-  }
 
-function getCookie(nombre) {
-    var name = nombre + "=";
+
+//                          COOKIES
+
+function setCookie(cname, value, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + value + ";" + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
     var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
     return "";
-  }
+}
 
- function checkCookie(nombre) {
-    var username = getCookie("username");
-    if (username != "") {
-        tercero.document.getElementById("abandono").innerHTML = username;
+function checkCookie(cname) {
+    var cname = getCookie(cname);
+    if (cname != "") {
+        // SI EL CNAME ES != DE VACIO ENTONCES BUSCA LAS COOKIES CON EL PARSEINT
+        perdidas = parseInt(getCookie("pierdo"));
+        abandonadas = parseInt(getCookie("abandonadas"));
+        ganadas = parseInt(getCookie("gano"));
     } else {
-      username = prompt("Please enter your name:", "");
-      if (username != "" && username != null) {
-        setCookie("username", username, 365);
-      }
-    } console.log(username);
-  } 
- 
+        // SINO DEFINIMOS LAS COOKIES A 0 CREADONLAS CON EL DOCUMENT.COOKIE Y LO PASAMOS A PARSEINT
+        setCookie("pierdo", perdidas, 30);
+        perdidas = parseInt(getCookie("pierdo"));
+        setCookie("abandonadas", abandonadas, 30);
+        abandonadas = parseInt(getCookie("abandonadas"));
+        setCookie("gano", ganadas, 30);
+        ganadas = parseInt(getCookie("gano"));
+    }
+}
+
+
+
+function estadisticas() {
+    tercero.document.write("<h2>Estadísticas globales</h2>");
+
+    tercero.document.write("<p id='abandono'>Partidas abandonadas:</p>");
+    tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
+
+    tercero.document.write("<p id='ganadas'>Partidas ganadas:</p>");
+    tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
+
+    tercero.document.write("<p id='perdidas'>Partidas perdidas:</p>");
+    tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
+}
 
 iniciar_juego();
 abrirVentanas();
