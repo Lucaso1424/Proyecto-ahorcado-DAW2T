@@ -36,5 +36,15 @@ button.boton {
     height: 100%;
 }
 
-
-
+#prompt {
+    padding: 20px;
+  }
+  
+  #prompt p {
+    padding-bottom: 8px;
+  }
+  
+  #prompt p b {
+    font-weight: 700;
+  }
+  
