@@ -46,9 +46,9 @@ function abrirVentanas() {
 }
 
 function Array() {
-    if (palabrasUsuario == "" || palabrasUsuario == null) {
+    //if (palabrasUsuario == "" || palabrasUsuario == null) {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
-    }
+   // }
     console.log(palabrasUsuario);
 }
 
@@ -283,7 +283,7 @@ function estadisticas() {
 
 iniciar_juego();
 abrirVentanas();
-//Array();
+Array();
 getRandom();
 comitasBajas();
 estadisticas();
