@@ -185,7 +185,6 @@ function compararLetra() {
         setCookie("gano", ganadas, 30);
         // PONEMOS LOS INTENTOS A 6
         intentos = 6;
-        primero.document.write("<img src='img/Foto0.png' id='img01'>");
         i = 1;
         mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
         getRandom();
