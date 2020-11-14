@@ -134,7 +134,7 @@ function compararLetra() {
 
 
     //                                          TE CUELGAN
-
+    
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         perdidas++;
@@ -225,8 +225,8 @@ function timeout_abandonar() {
             sec--;
             if(sec == -1)
             {
+                document.getElementById("temporizador").innerHTML =  "";
                 clearInterval(intervalo);
-                
             }
             },1000);
     setTimeout('abandonar_partida()', 5000);

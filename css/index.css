@@ -1,5 +1,5 @@
 body {
-    background-image: url("");
+    background-color: #898d8c ;
 }
 
 h1 {
@@ -15,10 +15,14 @@ h1 {
 }
 
 button.boton {
-    width: 110px; 
-    width: 50%;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 575;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1fad4e;
+    border-radius: 6px;
+    border: 1px solid #0016b0;
 }
 
 .footer {
