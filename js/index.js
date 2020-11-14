@@ -24,12 +24,12 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
-    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:");
-    if (palabrasUsuario !== null) {
-        palabrasUsuario = palabrasUsuario.split(",");
-
-    } else
-        iniciar_juego();
+    palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado o pulsa aceptar para jugar con las predefinidas:");
+    if (palabrasUsuario !== null){
+    palabrasUsuario = palabrasUsuario.split(",");
+    }
+    else 
+    iniciar_juego();
 }
 
 
@@ -202,6 +202,7 @@ function abandonar_partida() {
     abandonadas++;
     // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS ABANDONADAS
     tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
+    
     // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE ABANDONADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
     setCookie("abandonadas", abandonadas, 30);
 
@@ -215,10 +216,23 @@ function abandonar_partida() {
     comitasBajas();
 }
 
-// LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 10 SECS
+// LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SECS
 function timeout_abandonar() {
+         var sec = 5;
+         var intervalo = setInterval(function(){
+        var a = new Date();
+            document.getElementById("temporizador").innerHTML =  sec;
+            sec--;
+            if(sec == -1)
+            {
+                clearInterval(intervalo);
+                
+            }
+            },1000);
     setTimeout('abandonar_partida()', 5000);
 }
+
+
 
 
 
