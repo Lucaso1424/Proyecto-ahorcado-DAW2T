@@ -3,18 +3,18 @@ html body {
     background-repeat: repeat;
 }
 
-@font-face{
-    font-family:fuente;
+@font-face {
+    font-family: fuente;
     src: url(Goldman-Bold.ttf);
 }
 
-@font-face{
-    font-family:fuente2;
+@font-face {
+    font-family: fuente2;
     src: url(Fine\ College.ttf);
 }
 
-@font-face{
-    font-family:fuente3;
+@font-face {
+    font-family: fuente3;
     src: url(ArchitectsDaughter-Regular.ttf);
 }
 
@@ -29,13 +29,12 @@ h2 {
     text-align: center;
     text-shadow: 2px 3px #999;
     font-family: "fuente";
-    font-size: 16;
 }
 
 p {
     font-size: 15;
     font-family: "fuente3";
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .centrado {
@@ -46,7 +45,7 @@ p {
     text-align: center;
 }
 
-button.boton {
+/*button.boton {
     text-decoration: none;
     padding: 5px;
     font-weight: 575;
@@ -55,27 +54,42 @@ button.boton {
     background-color: #1fad4e;
     border-radius: 6px;
     border: 1px solid #0016b0;
-}
+}*/
 
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #3caf59;
+    background-color: rgb(126, 101, 56);
     color: black;
     text-align: center;
 }
 
 #p_footer {
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
-#img01{
-  max-width: 100%;
-  height: auto;
+#abandono {
+    font-size: 18;
+    font-weight: bold;
 }
 
-#temporizador{
-    
+#perdidas {
+    font-size: 18;
+    font-weight: bold;
 }
+
+#ganadas {
+    font-size: 18;
+    font-weight: bold;
+}
+
+#img01 {
+    font-size: 20;
+    max-width: 100%;
+    height: auto;
+}
+
+#temporizador {}

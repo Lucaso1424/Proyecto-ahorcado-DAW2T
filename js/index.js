@@ -306,8 +306,6 @@ function css_ventanas() {
     tercero.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
 }
 
-
-
 iniciar_juego();
 abrirVentanas();
 Array();
