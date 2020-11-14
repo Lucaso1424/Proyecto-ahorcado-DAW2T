@@ -58,8 +58,6 @@ function getRandom() {
     // LLAMAMOS A LA FUNCIÓN DE ELIMINAR CARACTERES PARA QUE ELIMINE LOS ACENTOS CREADOS
     texto = eliminarCaracteres(texto);
     console.log(texto);
-    //document.getElementById("textoRespuesta").innerHTML = "La respuesta es: "+ texto;
-
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
@@ -170,7 +168,7 @@ function compararLetra() {
                 }
             }, 1000);
             setTimeout(falloAhorcado, 12000);
-        }        
+        }
         timeout_colgado();
     }
 
@@ -305,9 +303,18 @@ function estadisticas() {
     tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
 }
 
+function css_ventanas() {
+    primero.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+    segundo.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+    tercero.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+}
+
+
+
 iniciar_juego();
 abrirVentanas();
 Array();
 getRandom();
 comitasBajas();
 estadisticas();
+css_ventanas();

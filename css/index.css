@@ -1,15 +1,28 @@
-body {
-    background-color: #898d8c ;
+html body {
+    background-color: #efd648 ;
 }
 
 h1 {
     text-align: center;
+    text-shadow: 2px 3px #999;
+    font-family: monospace;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 2px 3px #999;
+    font-family: monospace;
+}
+
+p {
+    font-size: 15;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 .centrado {
     margin: auto;
-    width: 50%;
-    border: 3px solid rgb(59, 166, 180);
+    width: 30%;
+    border: 3px solid rgb(0, 0, 0);
     padding: 15px;
     text-align: center;
 }
@@ -30,7 +43,7 @@ button.boton {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(59, 166, 180);
+    background-color: #3caf59;
     color: black;
     text-align: center;
 }
@@ -42,6 +55,5 @@ button.boton {
 }
 
 #temporizador{
-
     
 }
