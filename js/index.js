@@ -25,11 +25,11 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado:");
-    if (palabrasUsuario !== null){
-    palabrasUsuario = palabrasUsuario.split(",");
-    }
-    else 
-    iniciar_juego();
+    if (palabrasUsuario !== null) {
+        palabrasUsuario = palabrasUsuario.split(",");
+
+    } else
+        iniciar_juego();
 }
 
 
@@ -134,7 +134,7 @@ function compararLetra() {
 
 
     //                                          TE CUELGAN
-    
+
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         perdidas++;
