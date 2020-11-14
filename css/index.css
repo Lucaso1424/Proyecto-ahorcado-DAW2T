@@ -1,11 +1,6 @@
 html body {
-<<<<<<< HEAD
     background-image: url(Background.jpg);
-    background-repeat:repeat;
-
-=======
-    background-color: gainsboro;
->>>>>>> 1213e638a41721d22c03f9f72f1fe4c4aa388b27
+    background-repeat: repeat;
 }
 
 @font-face{
@@ -40,6 +35,7 @@ h2 {
 p {
     font-size: 15;
     font-family: "fuente3";
+    font-weight: 700;
 }
 
 .centrado {

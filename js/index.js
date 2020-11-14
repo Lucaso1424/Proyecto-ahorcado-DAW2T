@@ -25,11 +25,11 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado o pulsa aceptar para jugar con las predefinidas:");
-    if (palabrasUsuario !== null){
-    palabrasUsuario = palabrasUsuario.split(",");
+    if (palabrasUsuario !== null) {
+        palabrasUsuario = palabrasUsuario.split(",");
+    } else {
+        iniciar_juego();
     }
-    else 
-    iniciar_juego();
 }
 
 
@@ -38,7 +38,7 @@ function abrirVentanas() {
     // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=0, left=960, width=500, height=460");
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=520, left=960, width=350, height=30");
-    segundo.document.write("<h2 id='letra'>" + convertido_final + "</h2>"); //EDIT
+    segundo.document.write("<h1 id='letra'>" + convertido_final + "</h1>"); //EDIT
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=700, left=960, width=400, height=200");
     primero.document.write("<img src='img/Foto0.png' id='img01'>");
 }
@@ -58,8 +58,6 @@ function getRandom() {
     // LLAMAMOS A LA FUNCIÓN DE ELIMINAR CARACTERES PARA QUE ELIMINE LOS ACENTOS CREADOS
     texto = eliminarCaracteres(texto);
     console.log(texto);
-    //document.getElementById("textoRespuesta").innerHTML = "La respuesta es: "+ texto;
-
 }
 
 // CONVERTIMOS EL ARRAY EN UN LET PARA QUE NOS SALGA UN TEXTO RANDOMIZADO EN FORMATO STRING
@@ -85,7 +83,7 @@ function eliminarCaracteres() {
     var cambio = /[áàéèíìóòúùü ]/ig;
 
     var cambio_final = texto.replace(cambio, function (a) {
-        return acentos_espacios[a];
+        return acentos_espacios[a]
     });
     // EN EL REPLACE AGREGAMOS LOS NUMEROS PARA SUSTITUIR
     cambio_final = cambio_final.replace(/[1234567890!¿?+-]/ig, "");
@@ -134,7 +132,7 @@ function compararLetra() {
 
 
     //                                          TE CUELGAN
-    
+
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         perdidas++;
@@ -156,10 +154,22 @@ function compararLetra() {
     //                                          TIMEOUT
 
     if (intentos <= 0) {
-        // LLAMAMOS A LA FUNCION FALLO AHORCADO
-        alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.");
         // CAMBIAR EL TIME OUT A 10000 MILISEGUNDOS
-        setTimeout(falloAhorcado, 1000);
+        function timeout_colgado() {
+            var sec = 10;
+            var intervalo = setInterval(function () {
+                var a = new Date();
+                document.getElementById("temporizador").innerHTML = sec;
+                sec--;
+                if (sec == -1) {
+                    document.getElementById("temporizador").innerHTML = "";
+                    clearInterval(intervalo);
+                    primero.document.getElementById("img01").src = 'img/Foto0.png';
+                }
+            }, 1000);
+            setTimeout(falloAhorcado, 12000);
+        }
+        timeout_colgado();
     }
 
     //                                       GANAR PARTIDA
@@ -175,7 +185,6 @@ function compararLetra() {
         setCookie("gano", ganadas, 30);
         // PONEMOS LOS INTENTOS A 6
         intentos = 6;
-        primero.document.write("<img src='img/Foto0.png' id='img01'>");
         i = 1;
         mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
         getRandom();
@@ -202,7 +211,7 @@ function abandonar_partida() {
     abandonadas++;
     // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS ABANDONADAS
     tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
-    
+
     // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE ABANDONADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
     setCookie("abandonadas", abandonadas, 30);
 
@@ -218,19 +227,19 @@ function abandonar_partida() {
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SECS
 function timeout_abandonar() {
-         var sec = 5;
-         var intervalo = setInterval(function(){
+    var sec = 5;
+    var intervalo = setInterval(function () {
         var a = new Date();
-            document.getElementById("temporizador").innerHTML =  sec;
-            sec--;
-            if(sec == -1)
-            {
-                document.getElementById("temporizador").innerHTML =  "";
-                clearInterval(intervalo);
-            }
-            },1000);
+        document.getElementById("temporizador").innerHTML = sec;
+        sec--;
+        if (sec == -1) {
+            document.getElementById("temporizador").innerHTML = "";
+            clearInterval(intervalo);
+        }
+    }, 1000);
     setTimeout('abandonar_partida()', 5000);
 }
+
 
 
 
@@ -291,9 +300,18 @@ function estadisticas() {
     tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
 }
 
+function css_ventanas() {
+    primero.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+    segundo.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+    tercero.document.write("<link rel='stylesheet' type='text/css' href='css/index.css'>");
+}
+
+
+
 iniciar_juego();
 abrirVentanas();
 Array();
 getRandom();
 comitasBajas();
 estadisticas();
+css_ventanas();
