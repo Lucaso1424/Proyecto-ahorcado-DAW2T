@@ -25,11 +25,11 @@ document.getElementById("botonLetra").addEventListener("click", compararLetra);
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
     palabrasUsuario = prompt("Introduce 5 palabras para adivinar en el juego del ahorcado o pulsa aceptar para jugar con las predefinidas:");
-    if (palabrasUsuario !== null){
-    palabrasUsuario = palabrasUsuario.split(",");
+    if (palabrasUsuario !== null) {
+        palabrasUsuario = palabrasUsuario.split(",");
+    } else {
+        iniciar_juego();
     }
-    else 
-    iniciar_juego();
 }
 
 
@@ -134,7 +134,7 @@ function compararLetra() {
 
 
     //                                          TE CUELGAN
-    
+
     function falloAhorcado() {
         alert("Has perdido el juego, la palabra era: " + texto + ".");
         perdidas++;
@@ -156,10 +156,22 @@ function compararLetra() {
     //                                          TIMEOUT
 
     if (intentos <= 0) {
-        // LLAMAMOS A LA FUNCION FALLO AHORCADO
-        alert("¡Te has quedado ahorcado! Espera 10 segundos para que se inicie una nueva partida.");
         // CAMBIAR EL TIME OUT A 10000 MILISEGUNDOS
-        setTimeout(falloAhorcado, 1000);
+        function timeout_colgado() {
+            var sec = 10;
+            var intervalo = setInterval(function () {
+                var a = new Date();
+                document.getElementById("temporizador").innerHTML = sec;
+                sec--;
+                if (sec == -1) {
+                    document.getElementById("temporizador").innerHTML = "";
+                    clearInterval(intervalo);
+                    primero.document.getElementById("img01").src = 'img/Foto0.png';
+                }
+            }, 1000);
+            setTimeout(falloAhorcado, 12000);
+        }        
+        timeout_colgado();
     }
 
     //                                       GANAR PARTIDA
@@ -202,7 +214,7 @@ function abandonar_partida() {
     abandonadas++;
     // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS ABANDONADAS
     tercero.document.getElementById("abandono").innerHTML = "Partidas abandonadas: " + abandonadas;
-    
+
     // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE ABANDONADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
     setCookie("abandonadas", abandonadas, 30);
 
@@ -218,19 +230,19 @@ function abandonar_partida() {
 
 // LLAMAMOS A LA FUNCION DE ABANDONAR PARTIDA AQUI Y LE APLICAMOS UN SETTIMEOUT DE 5 SECS
 function timeout_abandonar() {
-         var sec = 5;
-         var intervalo = setInterval(function(){
+    var sec = 5;
+    var intervalo = setInterval(function () {
         var a = new Date();
-            document.getElementById("temporizador").innerHTML =  sec;
-            sec--;
-            if(sec == -1)
-            {
-                document.getElementById("temporizador").innerHTML =  "";
-                clearInterval(intervalo);
-            }
-            },1000);
+        document.getElementById("temporizador").innerHTML = sec;
+        sec--;
+        if (sec == -1) {
+            document.getElementById("temporizador").innerHTML = "";
+            clearInterval(intervalo);
+        }
+    }, 1000);
     setTimeout('abandonar_partida()', 5000);
 }
+
 
 
 
