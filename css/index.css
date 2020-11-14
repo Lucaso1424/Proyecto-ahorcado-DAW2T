@@ -1,24 +1,45 @@
 html body {
+<<<<<<< HEAD
     background-image: url(Background.jpg);
     background-repeat:repeat;
 
+=======
+    background-color: gainsboro;
+>>>>>>> 1213e638a41721d22c03f9f72f1fe4c4aa388b27
 }
+
+@font-face{
+    font-family:fuente;
+    src: url(Goldman-Bold.ttf);
+}
+
+@font-face{
+    font-family:fuente2;
+    src: url(Fine\ College.ttf);
+}
+
+@font-face{
+    font-family:fuente3;
+    src: url(ArchitectsDaughter-Regular.ttf);
+}
+
 
 h1 {
     text-align: center;
     text-shadow: 2px 3px #999;
-    font-family: monospace;
+    font-family: "fuente";
 }
 
 h2 {
     text-align: center;
     text-shadow: 2px 3px #999;
-    font-family: monospace;
+    font-family: "fuente";
+    font-size: 16;
 }
 
 p {
     font-size: 15;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: "fuente3";
 }
 
 .centrado {
@@ -50,6 +71,9 @@ button.boton {
     text-align: center;
 }
 
+#p_footer {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 #img01{
   max-width: 100%;

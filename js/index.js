@@ -101,7 +101,7 @@ function comitasBajas() {
     }
 
     convertido = mostrar.toString();
-    convertido_final = convertido.replace(/[,]/gi, " ")
+    convertido_final = convertido.replace(/[,]/gi, " ");
     // PONEMOS UN ID PARA LUEGO PODER CAMBIAR LAS _ POR LA LETRA CAMBIADA
     segundo.document.getElementById("letra").innerHTML = convertido_final; //EDIT
 }
@@ -277,8 +277,6 @@ function checkCookie(cname) {
         ganadas = parseInt(getCookie("gano"));
     }
 }
-
-
 
 function estadisticas() {
     tercero.document.write("<h2>Estadísticas globales</h2>");
