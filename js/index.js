@@ -67,20 +67,29 @@ function eliminarCaracteres() {
 
     const acentos_espacios = {
         'Á': 'A',
+        'Â': 'A',
+        'Ä': 'A',
         'À': 'A',
         'É': 'E',
         'È': 'E',
+        'Ê': 'E',
+        'Ë': 'E',
         'Í': 'I',
         'Ì': 'I',
+        'Î': 'I',
+        'Ï': 'I',
         'Ó': 'O',
         'Ò': 'O',
+        'Ô': 'O',
+        'Ö': 'O',
         'Ú': 'U',
         'Ù': 'U',
+        'Û': 'U',
         'Ü': "U",
         " ": ""
     };
 
-    var cambio = /[áàéèíìóòúùü ]/ig;
+    var cambio = /[áàäâéèêëíìïîóòôöúùüüû ]/ig;
 
     var cambio_final = texto.replace(cambio, function (a) {
         return acentos_espacios[a]
