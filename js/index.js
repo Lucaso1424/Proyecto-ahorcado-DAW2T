@@ -98,6 +98,7 @@ function eliminarCaracteres() {
         "Ô": "O",
         "Û": "U",
         "@": "A",
+        " ": ""
     };
 
     var cambio = /[áàéèíìóòúùüâêîôûäëïöü@ ]/ig;
