@@ -1,4 +1,3 @@
-// CREAMOS UN BOTON, COMO REFERENCIA DEL BOTON DE HTML
 var palabrasUsuario = [];
 var mostrar = [];
 var convertido = [];
@@ -16,11 +15,13 @@ checkCookie("abandonadas");
 checkCookie("perdidas");
 checkCookie("gano");
 
+
 var abandona = document.getElementById("cerrar");
 document.getElementById("cerrar").addEventListener("click", timeout_abandonar);
 
 var compara = document.getElementById("botonLetra");
 document.getElementById("botonLetra").addEventListener("click", compararLetra);
+
 
 // CREAMOS UNA FUNCIÓN PARA INTRODUCIR LOS PARÁMETROS DE LAS PALABRAS E INICIAR EL JUEGO DIRECTAMENTE 
 function iniciar_juego() {
@@ -35,14 +36,14 @@ function iniciar_juego() {
 
 // ABRIR VENTANAS EMERGENTES DE DIFERENTES ARCHIVOS DE PÁGINA, DONDE CREAMOS ESO EN UNA FUNCION 
 function abrirVentanas() {
-    // SE HACE CON LA ETIQUETA WINDOW.OPEN
     primero = window.open("../ventanas/primera_ventana.html", "primero", "top=0, left=960, width=500, height=460");
     segundo = window.open("../ventanas/segunda_ventana.html", "segundo", "top=520, left=960, width=350, height=30");
-    segundo.document.write("<h1 id='letra'>" + convertido_final + "</h1>"); //EDIT
+    segundo.document.write("<h1 id='letra'>" + convertido_final + "</h1>"); 
     tercero = window.open("../ventanas/tercera_ventana.html", "tercero", "top=700, left=960, width=400, height=200");
     primero.document.write("<img src='img/Foto0.png' id='img01'>");
 }
 
+//FUNCION PARA COMPROBAR SI EL TEXTO INTRODUCIDO ES NULO
 function Array() {
     if (palabrasUsuario == "" || palabrasUsuario == null) {
         palabrasUsuario = ["patata", "elefante", "gundam", "auriculares", "ordenador"];
@@ -77,13 +78,23 @@ function eliminarCaracteres() {
         'Ú': 'U',
         'Ù': 'U',
         'Ü': "U",
-        " ": ""
+        "Ä": "A",
+        "Ë": "E",
+        "Ï": "I",
+        "Ö": "O",
+        "Ü": "U",
+        "Â": "A",
+        "Ê": "E",
+        "Î": "I",
+        "Ô": "O",
+        "Û": "U",
+        "@": "A",
     };
 
-    var cambio = /[áàéèíìóòúùü ]/ig;
+    var cambio = /[áàéèíìóòúùüâêîôûäëïöü@ ]/ig;
 
     var cambio_final = texto.replace(cambio, function (a) {
-        return acentos_espacios[a]
+        return acentos_espacios[a];
     });
     // EN EL REPLACE AGREGAMOS LOS NUMEROS PARA SUSTITUIR
     cambio_final = cambio_final.replace(/[1234567890!¿?+-]/ig, "");
@@ -91,13 +102,13 @@ function eliminarCaracteres() {
     return cambio_final;
 }
 
+// FUNCION QUE TE CONVIERTE EL TEXTO RANDOMIZADO EN  "____"
 function comitasBajas() {
     texto = texto.split("");
 
     for (let letra of texto) {
         mostrar.push('_');
     }
-
     convertido = mostrar.toString();
     convertido_final = convertido.replace(/[,]/gi, " ");
     // PONEMOS UN ID PARA LUEGO PODER CAMBIAR LAS _ POR LA LETRA CAMBIADA
@@ -122,11 +133,14 @@ function compararLetra() {
             segundo.document.getElementById("letra").innerHTML = convertido_final;
         }
     }
+   
+    ////                                        LETRA FALLADA
+
     // AQUI COMPROBAMOS CON EL OPERADOR ! SI TEXTO ES DISTINTO DE LA LETRA QUE COMPROBAMOS
     if (!texto.includes(compara)) {
         // RESTAMOS LOS INTENTOS DISPONIBLES Y LOS MOSTRAMOS EN UN ALERT
         intentos--;
-        cambiarFoto();
+        cambiarFoto(); //EJECUTAMOS LA FUNCÓN DE CAMBIAR FOTO
         alert("Fallido, te quedan " + intentos + " intentos.");
     }
 
@@ -138,15 +152,17 @@ function compararLetra() {
         perdidas++;
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS PERDIDAS
         tercero.document.getElementById("perdidas").innerHTML = "Partidas perdidas: " + perdidas;
+
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE PERDIDAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
         setCookie("pierdo", perdidas, 30);
+
         // VOLVEMOS A PONER LOS INTENTOS A 6
         intentos = 6;
         i = 1;
         mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
         // LLAMAMOS A LA FUNCIÓN RANDOM PARA QUE COJA OTRA PALABRA DE NUEVO
         getRandom();
-        // PONEMOS EL ARRAY DE MOSTRAR [] A 0 PARA QUE SE VUELVA A EJECUTAR LA FUNCION comitasBajas() 
+        // PONEMOS EL ARRAY DE MOSTRAR [] VACIO  PARA QUE SE VUELVA A EJECUTAR LA FUNCION comitasBajas() 
         // Y VUELVA CONVERTIR EL ARRAY A _
         comitasBajas();
     }
@@ -177,34 +193,34 @@ function compararLetra() {
     // COMPROBAMOS CON UN IF SI LA PALABRA ES EL TEXTO CON UN .toString Y UN REPLACE DE LAS , POR ESPACIOS PARA COMPROBAR EL IF
     if (convertido_final == texto.toString().replace(/[,]/gi, " ")) {
         alert("¡Enhorabuena, has ganado la partida, la palabra era " + convertido_final + ".!");
+
         // HACEMOS UN ++ DEL CONTADOR DE GANADAS
         ganadas++;
         // ENVIAMOS CON UN innerHTML A LA TERCERA VENTANA LAS PARTIDAS GANADAS
         tercero.document.getElementById("ganadas").innerHTML = "Partidas ganadas: " + ganadas;
+
         // CREAMOS LA COOKIE CONCATENANDO EL ID Y LA VARIABLE GANADAS, CON LOS DIAS INCLUIDOS DEL EXDAYS
         setCookie("gano", ganadas, 30);
-        // PONEMOS LOS INTENTOS A 6
+
+        //DEFINICIÓN DE VARIABLES
         intentos = 6;
         i = 1;
-        mostrar = []; //DEFINIR DE NUEVO LA VARIABLE
+        mostrar = []; 
         getRandom();
-        // PONEMOS EL ARRAY DE MOSTRAR [] A 0 PARA QUE SE VUELVA A EJECUTAR LA FUNCION comitasBajas() 
-        // Y VUELVA CONVERTIR EL ARRAY A _
         comitasBajas();
     }
 } //FIN compararLetra
 
 
-
-// FUNCION QUE RECARGA LA PAGINA PARA EMPEZAR LA PARTIDA DE NUEVO A PARTIR DE UN INTERVALO DE 5 SEGUNDOS
+//CAMBIAR FOTO 
 var i = 1;
-
 function cambiarFoto() {
     if (!texto.includes(compara)) {
         primero.document.getElementById("img01").src = 'img/Foto' + i + '.png';
         i++;
     }
 }
+
 
 function abandonar_partida() {
     // HACEMOS UN ++ DEL CONTADOR DE ABANDONADAS
